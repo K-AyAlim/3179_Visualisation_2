@@ -21,8 +21,10 @@
   {
       "mark": {"type": "point", "filled": true, "size": 110,"shape": "M0,-1 L1,-0.2 L0.7,-0.2 L0.7,1 L-0.7,1 L-0.7,-0.2 L-1,-0.2 Z" },     "encoding": {
       "x": {"field": "index", "type": "quantitative", "axis": null},
-      "color": {"condition": {"test": "datum.index < datum.houses", 
-                              "value": "#8c7b6f"},  "value": "#eadfd4"},
+      "color": {"condition": [
+                  {"test": "datum.index < datum.houses && datum.pet_type == 'Cats'", "value": "#d9772b"},
+                  {"test": "datum.index < datum.houses", "value": "#4a3a30"}],
+                "value": "#e0d3c5"},
       "tooltip": [
         {"field": "pet_type", "type": "nominal", "title": "Pet"},
         {"field": "household_penetration", "type": "quantitative", "title": "Share of households (%)"}
