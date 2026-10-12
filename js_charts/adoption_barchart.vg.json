@@ -2,16 +2,42 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": 180,
-  "autosize": {"type": "fit", "contains": "padding"},
-  "padding": {"top": 20, "bottom": 20, "left": 24, "right": 24},
-  "data": {"url": "data_sources/adoption_wait.csv"},
-  "mark": {"type": "bar", "cornerRadiusEnd": 4}, 
+  "autosize": { "type": "fit", "contains": "padding" },
+  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+  "data": { "url": "data_sources/adoption_wait.csv" },
+  "mark": { "type": "bar", "cornerRadiusEnd": 4 },
   "encoding": {
-    "y": {"field": "cat_type", "type": "nominal", "title": null,
-      "sort": ["Kittens", "Adolescent & adult cats", "No adoption restrictions", "With adoption restrictions"],
-      "axis": {"domain": false, "ticks": false, "labelFontSize": 14, "labelPadding": 24,
-               "labelFont": "Fraunces", "labelFontWeight": 600}},
-    "x": {"field": "percent_over_60_days", "type": "quantitative",
-      "axis": null, "scale": {"domain": [0, 40]}}
+    "y": {
+      "field": "cat_type",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Kittens",
+        "Adolescent & adult cats",
+        "No adoption restrictions",
+        "With adoption restrictions"
+      ],
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 14,
+        "labelPadding": 24,
+        "labelFont": "Fraunces",
+        "labelFontWeight": 600
+      }
+    },
+    "x": {
+      "field": "percent_over_60_days",
+      "type": "quantitative",
+      "axis": null,
+      "scale": { "domain": [0, 40] }
+    },
+    "color": {
+      "condition": {
+        "test": "datum.cat_type == 'Adolescent & adult cats' || datum.cat_type == 'With adoption restrictions'",
+        "value": "#b8476e"
+      },
+      "value": "#5a3a2e"
+    }
   }
 }
