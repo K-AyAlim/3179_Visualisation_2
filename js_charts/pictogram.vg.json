@@ -22,7 +22,8 @@
                       "labelFont": "Fraunces", "labelFontWeight": 600}}},
 "layer": [
   {
-      "mark": {"type": "point", "filled": true, "size": 300,"shape": "M0,-1 L1,-0.2 L0.7,-0.2 L0.7,1 L-0.7,1 L-0.7,-0.2 L-1,-0.2 Z" },     "encoding": {
+      "mark": {"type": "point", "filled": true, "size": 300,"shape": "M0,-1 L1,-0.2 L0.7,-0.2 L0.7,1 L-0.7,1 L-0.7,-0.2 L-1,-0.2 Z" },     
+      "encoding": {
       "x": {"field": "index", "type": "quantitative", "axis": null, "scale": {"domain": [0, 22]}},
       "color": {"condition": [
                   {"test": "datum.index < datum.houses && datum.pet_type == 'Cats'", "value": "#b8476e"},
