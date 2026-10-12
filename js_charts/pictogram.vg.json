@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text": "Pets per Household",
-        "subtitle": "Each house = 2% of Australian households (rounded), 2025",
+        "subtitle": "Each house = 5% of Australian households (rounded), 2025",
         "anchor": "start"},
         "width": "container",
         "height": 200,
@@ -9,8 +9,8 @@
     "data": {"url": "data_sources/pictogram_pet_ownership.csv"}, 
    
     "transform": [
-    {"calculate": "round(datum.household_penetration/2)", "as": "houses"}, 
-    {"calculate": "sequence(0,50)", "as": "index"}, 
+    {"calculate": "round(datum.household_penetration/5)", "as": "houses"}, 
+    {"calculate": "sequence(0,20)", "as": "index"}, 
     {"flatten":["index"]}],
 
     "encoding": { "y": {"field": "pet_type", "type": "nominal", "title": null, 
@@ -19,7 +19,7 @@
                       "labelFontSize": 13, "labelPadding":10}}},
 "layer": [
   {
-      "mark": {"type": "point", "filled": true, "size": 110,"shape": "M0,-1 L1,-0.2 L0.7,-0.2 L0.7,1 L-0.7,1 L-0.7,-0.2 L-1,-0.2 Z" },     "encoding": {
+      "mark": {"type": "point", "filled": true, "size": 300,"shape": "M0,-1 L1,-0.2 L0.7,-0.2 L0.7,1 L-0.7,1 L-0.7,-0.2 L-1,-0.2 Z" },     "encoding": {
       "x": {"field": "index", "type": "quantitative", "axis": null},
       "color": {"condition": [
                   {"test": "datum.index < datum.houses && datum.pet_type == 'Cats'", "value": "#d9772b"},
@@ -32,7 +32,7 @@
     }
   },
   {
-    "transform": [{"filter": "datum.index == 49"}],
+    "transform": [{"filter": "datum.index == 19"}],
     "mark": {"type": "text", "align": "left", "dx": 14, "fontSize": 13, "fontWeight": "bold"},
     "encoding": {
       "x": {"field": "index", "type": "quantitative"},
