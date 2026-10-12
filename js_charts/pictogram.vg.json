@@ -34,7 +34,7 @@
   },
   {
     "transform": [{"filter": "datum.index == 19"}],
-    "mark": {"type": "text", "align": "left", "dx": 14, "fontSize": 13, "fontWeight": "bold"},
+    "mark": {"type": "text", "align": "left", "dx": 24, "fontSize": 13, "fontWeight": "bold"},
     "encoding": {
       "x": {"field": "index", "type": "quantitative"},
       "text": {"field": "household_penetration", "type": "quantitative", "format": ".1f"},
