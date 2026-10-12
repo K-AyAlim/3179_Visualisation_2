@@ -5,6 +5,7 @@
         "anchor": "start"},
         "width": "container",
         "height": 200,
+        "autosize": {"type": "fit", "contains": "padding"},
 
     "data": {"url": "data_sources/pictogram_pet_ownership.csv"}, 
    
