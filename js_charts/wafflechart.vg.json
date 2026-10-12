@@ -1,0 +1,7 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+  "text": "Out of every 100 registered cats…",
+    "subtitle": "Each square = 1% of 6,824 registered cats in Townsville, Golden Plains and Surf Coast",
+    "anchor": "start"
+  }}
