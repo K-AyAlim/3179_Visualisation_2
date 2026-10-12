@@ -45,7 +45,7 @@
 
       <div class="story-row reverse">
         <div class="text-card">
-          <h3>The same cats, everywhere</h3>
+          <h3>People have favourites</h3>
           <p class="placeholder">YOUR TEXT: which breeds appear, and that the mix is similar in Queensland and Victoria.</p>
         </div>
         <div id="vis-heatmap" class="chart-card pending">Heatmap: breed × council</div>
@@ -56,7 +56,7 @@
           <h3>Out of 100 cats…</h3>
           <p class="placeholder">YOUR TEXT: about 3 in 4 registered cats have no pedigree.</p>
         </div>
-        <div id="vis-waffle" class="chart-card pending">Waffle chart</div>
+          <div id="vis-waffle" class="chart-card"></div>
       </div>
 
       <div class="story-row reverse">
@@ -158,6 +158,7 @@
 
   <script type="text/javascript">
     vegaEmbed('#vis-pictogram', "js_charts/pictogram.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-waffle', "js_charts/wafflechart.vg.json", { "actions": false }).catch(console.error);
   </script>
 </body>
 
