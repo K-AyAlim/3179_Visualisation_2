@@ -90,6 +90,14 @@ h2 {
   width: 100%;
 }
 
+.chart-card {
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 20px 24px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
 .vis-pending {
   min-height: 220px;
   border: 2px dashed #e2c4c8;
