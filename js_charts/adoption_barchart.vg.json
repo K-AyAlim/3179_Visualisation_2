@@ -1,0 +1,13 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 180,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "padding": {"top": 20, "bottom": 20, "left": 24, "right": 24},
+  "data": {"url": "data_sources/adoption_wait.csv"},
+  "mark": "bar",
+  "encoding": {
+    "y": {"field": "cat_type", "type": "nominal"},
+    "x": {"field": "percent_over_60_days", "type": "quantitative"}
+  }
+}
