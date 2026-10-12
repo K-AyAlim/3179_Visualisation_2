@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {
+  "title": {
     "text": "Comparison of Adoption Wait Times Based on Age",
     "subtitle": "Share of Cats that Took More than 60 Days to be Adopted",
     "anchor": "start"
@@ -9,8 +9,7 @@
   "height": 180,
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
-  "data": { "url": "data_sources/adoption_wait.csv" },
-  "mark": { "type": "bar", "cornerRadiusEnd": 4 },
+  "data": { "url": "data_sources/adoption_barchart.csv" },
   "encoding": {
     "y": {
       "field": "cat_type",
@@ -36,13 +35,53 @@
       "type": "quantitative",
       "axis": null,
       "scale": { "domain": [0, 40] }
-    },
-    "color": {
-      "condition": {
-        "test": "datum.cat_type == 'Adolescent & adult cats' || datum.cat_type == 'With adoption restrictions'",
-        "value": "#b8476e"
-      },
-      "value": "#5a3a2e"
     }
+  },
+  "layer": [
+    {
+      "mark": { "type": "bar", "cornerRadiusEnd": 4 },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.cat_type == 'Adolescent & adult cats' || datum.cat_type == 'With adoption restrictions'",
+            "value": "#b8476e"
+          },
+          "value": "#5a3a2e"
+        },
+        "tooltip": [
+          { "field": "cat_type", "type": "nominal", "title": "Cats" },
+          {
+            "field": "percent_over_60_days",
+            "type": "quantitative",
+            "title": "Waited 60+ days (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": { "field": "label", "type": "nominal" },
+        "color": {
+          "condition": {
+            "test": "datum.cat_type == 'Adolescent & adult cats' || datum.cat_type == 'With adoption restrictions'",
+            "value": "#b8476e"
+          },
+          "value": "#7a5a50"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "font": "Nunito",
+    "title": { "font": "Fraunces", "fontSize": 18, "subtitleColor": "#7a5a50" }
   }
 }
