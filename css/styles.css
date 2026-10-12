@@ -114,3 +114,7 @@ h2 {
   font-size: 14px;
   color: var(--muted);
 }
+
+footer a {
+  color: var(--accent);
+}
