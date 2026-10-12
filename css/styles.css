@@ -1,9 +1,9 @@
 :root {
-  --ink: #2e2420;
-  --muted: #6b5a4e;
-  --accent: #d9772b;
-  --paper: #fffaf4;
-  --backdrop: #efe6dc;
+  --ink: #3b2620;
+  --muted: #7a5a50;
+  --accent: #b8476e;
+  --paper: #fff9f8;
+  --backdrop: #f4e1e1;
 }
 
 body {
@@ -92,9 +92,9 @@ h2 {
 
 .vis-pending {
   min-height: 220px;
-  border: 2px dashed #d8c8b8;
+  border: 2px dashed #e2c4c8;
   border-radius: 8px;
-  color: #b09a88;
+  color: #b08f8c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,7 +105,7 @@ h2 {
 }
 
 .placeholder {
-  background-color: #fff1c9;
+  background-color: #fbe0e7;
   padding: 6px 10px;
   border-radius: 4px;
 }

@@ -23,9 +23,9 @@
       "mark": {"type": "point", "filled": true, "size": 300,"shape": "M0,-1 L1,-0.2 L0.7,-0.2 L0.7,1 L-0.7,1 L-0.7,-0.2 L-1,-0.2 Z" },     "encoding": {
       "x": {"field": "index", "type": "quantitative", "axis": null},
       "color": {"condition": [
-                  {"test": "datum.index < datum.houses && datum.pet_type == 'Cats'", "value": "#d9772b"},
-                  {"test": "datum.index < datum.houses", "value": "#4a3a30"}],
-                "value": "#e0d3c5"},
+                  {"test": "datum.index < datum.houses && datum.pet_type == 'Cats'", "value": "#b8476e"},
+                  {"test": "datum.index < datum.houses", "value": "#5a3a2e"}],
+                "value": "#ead2d4"},
       "tooltip": [
         {"field": "pet_type", "type": "nominal", "title": "Pet"},
         {"field": "household_penetration", "type": "quantitative", "title": "Share of households (%)"}
@@ -39,8 +39,8 @@
       "x": {"field": "index", "type": "quantitative"},
       "text": {"field": "household_penetration", "type": "quantitative", "format": ".1f"},
       "color": {
-        "condition": {"test": "datum.pet_type == 'Cats'", "value": "#d9772b"},
-        "value": "#6b5a4e"
+        "condition": {"test": "datum.pet_type == 'Cats'", "value": "#b8476e"},
+        "value": "#7a5a50"
       }
     }
   }
@@ -48,6 +48,6 @@
 "config": {
   "view": {"stroke": null},
   "font": "Nunito",
-  "title": {"font": "Fraunces", "fontSize": 18, "subtitleColor": "#6b5a4e"}
+  "title": {"font": "Fraunces", "fontSize": 18, "subtitleColor": "#7a5a50"}
 }
 }
