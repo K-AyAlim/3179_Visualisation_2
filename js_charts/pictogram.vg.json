@@ -16,7 +16,8 @@
     "encoding": { "y": {"field": "pet_type", "type": "nominal", "title": null, 
               "sort": ["Dogs", "Cats", "Fish", "Birds", "No pets"], 
              "axis": {"domain": false, "ticks": false, 
-                      "labelFontSize": 13, "labelPadding":10}}},
+                      "labelFontSize": 14, "labelPadding": 24,
+                      "labelFont": "Fraunces", "labelFontWeight": 600}}},
 "layer": [
   {
       "mark": {"type": "point", "filled": true, "size": 300,"shape": "M0,-1 L1,-0.2 L0.7,-0.2 L0.7,1 L-0.7,1 L-0.7,-0.2 L-1,-0.2 Z" },     "encoding": {
