@@ -6,6 +6,7 @@
         "width": "container",
         "height": 200,
         "autosize": {"type": "fit", "contains": "padding"},
+        "padding": {"top": 20, "bottom": 20, "left": 24, "right": 24},
 
     "data": {"url": "data_sources/pictogram_pet_ownership.csv"}, 
    
