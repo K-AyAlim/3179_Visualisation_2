@@ -4,4 +4,21 @@
   "text": "Out of every 100 registered cats…",
     "subtitle": "Each square = 1% of 6,824 registered cats in Townsville, Golden Plains and Surf Coast",
     "anchor": "start"
-  }}
+  }, 
+  "width": 300,
+  "height": 300,
+  "padding": {"top": 20, "bottom": 20, "left": 24, "right": 24},
+  "data": {"url": "data_sources/waffle_breeds.csv"},
+  "transform": [
+  {"calculate": "indexof(['Mixed', 'Crossbred', 'Purebred', 'Unknown'], datum.Breed)", "as": "order"},
+  {"window": [{"op": "sum", "field": "Percentage", "as": "running_end"}], "sort": [{"field": "order"}]},
+  {"calculate": "datum.running_end - datum.Percentage", "as": "running_start"},
+  {"calculate": "sequence(0, 100)", "as": "index"},
+  {"flatten": ["index"]},
+  {"filter": "datum.index >= round(datum.running_start) && datum.index < round(datum.running_end)"},
+  {"calculate": "datum.index % 10", "as": "col"},
+  {"calculate": "floor(datum.index / 10)", "as": "row"}
+], 
+"mark": {"type": "rect", "cornerRadius": 3, "stroke": "white", "strokeWidth": 3}
+
+}
