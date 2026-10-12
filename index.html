@@ -85,7 +85,7 @@
           <h3>But older cats wait longer</h3>
           <p class="placeholder">YOUR TEXT: adult cats and cats with restrictions take longer to be adopted.</p>
         </div>
-        <div id="vis-adoption" class="chart-card pending">Bar chart: adoption waiting times</div>
+        <div id="vis-adopt-barchart" class="chart-card"></div>
       </div>
 
       <div class="story-row">
@@ -159,6 +159,7 @@
   <script type="text/javascript">
     vegaEmbed('#vis-pictogram', "js_charts/pictogram.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-waffle', "js_charts/wafflechart.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-adopt-barchart', "js_charts/adoption_barchart.vg.json", { "actions": false }).catch(console.error);
   </script>
 </body>
 
