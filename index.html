@@ -4,13 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fur Real: Who Are Australia's Cats?</title>
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
-
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,158 +18,143 @@
 </head>
 
 <body>
-  <div class="page">
+  <main class="page">
 
-    <header class="pure-g">
-      <div class="pure-u-1-1">
-        <h1> Fur Real: Who Are Australia's Cats? </h1>
-        <p class="subtitle"> Exploring the ups and downs of domestic cat breeds in Australia </p>
-        <p class="placeholder"> Purebred cats are beautiful, but the reality is that most cats in Australia aren’t purebred. What truly shapes their lives isn’t their breed, but how we care for them. So let’s look past the pedigree and into the realities of cat life in Australia, from the homes they share with us to the shelters some end up in, and how we can keep them safe. 
-</p>
-      </div>
+    <header>
+      <h1>Fur Real: Who Are Australia's Cats?</h1>
+      <p class="subtitle">Exploring the ups and downs of domestic cat breeds in Australia</p>
+      <p class="intro">Purebred cats are beautiful, but the reality is that most cats in Australia aren’t purebred. What truly shapes their lives isn’t their breed, but how we care for them. So let’s look past the pedigree and into the realities of cat life in Australia, from the homes they share with us to the shelters some end up in, and how we can keep them safe.</p>
     </header>
 
     <section id="section-1">
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <h2><span class="section-number">1</span>The Purrfect Friends</h2>
-          <p class="section-subtitle">How Popular are Cats in Australia ?</p>
+      <h2><span class="section-number">1</span>The Purrfect Friends</h2>
+      <p class="section-subtitle">How popular are cats in Australia?</p>
+
+      <div class="story-row">
+        <div class="text-card">
+          <h3>1 in 3 homes has a cat</h3>
+          <p class="placeholder">YOUR TEXT: how common cats are compared with other pets.</p>
         </div>
-      </div>
-      <div class="pure-g">
-        <div class="pure-u-1-3">
-          <div class="description description-left">
-            <p class="placeholder">YOUR TEXT: how common cats are.</p>
-          </div>
-        </div>
-        <div class="pure-u-2-3">
-            <div class="chart-card"><div id="vis-pictogram" class="vis-container"></div></div>
-        </div>
-      </div>
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <div id="vis-map-states" class="vis-container vis-pending">Chart 2: Australia choropleth map</div>
-        </div>
+        <div id="vis-pictogram" class="chart-card"></div>
       </div>
     </section>
 
     <section id="section-2">
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <h2><span class="section-number">2</span>Meet the moggies</h2>
+      <h2><span class="section-number">2</span>Meet the Moggies</h2>
+      <p class="section-subtitle">Most cats aren’t purebred, and they’re loveable anyway</p>
+
+      <div class="story-row reverse">
+        <div class="text-card">
+          <h3>Out of 100 cats…</h3>
+          <p class="placeholder">YOUR TEXT: about 3 in 4 registered cats have no pedigree.</p>
         </div>
+        <div id="vis-waffle" class="chart-card pending">Waffle chart</div>
       </div>
-      <div class="pure-g">
-        <div class="pure-u-1-2">
-          <div id="vis-waffle" class="vis-container vis-pending">Chart 3: waffle</div>
+
+      <div class="story-row">
+        <div class="text-card">
+          <h3>The same cats, everywhere</h3>
+          <p class="placeholder">YOUR TEXT: which breeds appear, and that the mix is similar in Queensland and Victoria.</p>
         </div>
-        <div class="pure-u-1-2">
-          <div class="description description-right">
-            <p class="placeholder">YOUR TEXT: most cats have no pedigree.</p>
-          </div>
-        </div>
+        <div id="vis-heatmap" class="chart-card pending">Heatmap: breed × council</div>
       </div>
-      <div class="pure-g">
-        <div class="pure-u-1-3">
-          <div class="description description-left">
-            <p class="placeholder">YOUR TEXT: the breed mix is almost the same in Queensland and Victoria.</p>
-          </div>
+
+      <div class="story-row reverse">
+        <div class="text-card">
+          <h3>Breed doesn’t matter, care does</h3>
+          <p class="placeholder">YOUR TEXT: cats with no recorded breed are far less likely to be desexed.</p>
         </div>
-        <div class="pure-u-2-3">
-          <div id="vis-breed-heatmap" class="vis-container"></div>
-        </div>
-      </div>
-      <div class="pure-g">
-        <div class="pure-u-1-2">
-          <div id="vis-bump" class="vis-container vis-pending">Chart 5: bump chart</div>
-        </div>
-        <div class="pure-u-1-2">
-          <div id="vis-mosaic" class="vis-container vis-pending">Chart 6: mosaic</div>
-        </div>
+        <div id="vis-mosaic" class="chart-card pending">Mosaic: breed group × desexed</div>
       </div>
     </section>
 
     <section id="section-3">
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <h2><span class="section-number">3</span>Zooming in: where they live</h2>
+      <h2><span class="section-number">3</span>Why Desex and Microchip?</h2>
+      <p class="section-subtitle">What happens to cats that end up in shelters</p>
+
+      <div class="story-row">
+        <div class="text-card">
+          <h3>Hurray: most find a home</h3>
+          <p class="placeholder">YOUR TEXT: share of cats rehomed by state, and cats reunited with owners.</p>
         </div>
+        <div id="vis-map-rehomed" class="chart-card pending">Map: % of cats rehomed by state</div>
       </div>
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <div id="vis-map-townsville" class="vis-container vis-pending">Chart 7: Townsville symbol map</div>
+
+      <div class="story-row reverse">
+        <div class="text-card">
+          <h3>But older cats wait longer</h3>
+          <p class="placeholder">YOUR TEXT: adult cats and cats with restrictions take longer to be adopted.</p>
         </div>
+        <div id="vis-adoption" class="chart-card pending">Bar chart: adoption waiting times</div>
       </div>
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <div id="vis-map-sa" class="vis-container vis-pending">Chart 8: SA small-multiple maps</div>
+
+      <div class="story-row">
+        <div class="text-card">
+          <h3>Oh no: not every cat makes it</h3>
+          <p class="placeholder">YOUR TEXT: how many cats are euthanised, and why.</p>
         </div>
+        <div id="vis-radial" class="chart-card pending">Radial chart: reasons cats are euthanised</div>
       </div>
-      <div class="pure-g">
-        <div class="pure-u-1-3">
-          <div class="description description-left">
-            <p class="placeholder">YOUR TEXT: Ballarat registrations over time.</p>
-          </div>
+
+      <div class="story-row reverse">
+        <div class="text-card">
+          <h3>It matters for wildlife too</h3>
+          <p class="placeholder">YOUR TEXT: each roaming pet cat kills around 110 native animals a year.</p>
         </div>
-        <div class="pure-u-2-3">
-          <div id="vis-ballarat" class="vis-container vis-pending">Chart 9: Ballarat line chart</div>
-        </div>
+        <div id="vis-wildlife" class="chart-card pending">Bar chart: wildlife killed per cat</div>
       </div>
     </section>
 
     <section id="section-4">
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <h2><span class="section-number">4</span>When things go wrong</h2>
+      <h2><span class="section-number">4</span>Care Close to Home</h2>
+      <p class="section-subtitle">Desexing and registration in real life, and what you can do</p>
+
+      <div class="story-row">
+        <div class="text-card">
+          <h3>1 in 3 cats isn’t registered</h3>
+          <p class="placeholder">YOUR TEXT: registered, desexed and microchipped rates across South Australia.</p>
         </div>
+        <div id="vis-map-sa" class="chart-card pending">Small-multiple maps: South Australian councils</div>
       </div>
-      <div class="pure-g">
-        <div class="pure-u-1-2">
-          <div id="vis-radial" class="vis-container vis-pending">Chart 10: radial chart</div>
+
+      <div class="story-row reverse">
+        <div class="text-card">
+          <h3>Suburb by suburb</h3>
+          <p class="placeholder">YOUR TEXT: cats and desexing rates across Townsville suburbs.</p>
         </div>
-        <div class="pure-u-1-2">
-          <div id="vis-rspca-trend" class="vis-container vis-pending">Chart 11: RSPCA trend</div>
-        </div>
+        <div id="vis-map-townsville" class="chart-card pending">Symbol map: Townsville suburbs</div>
       </div>
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <div id="vis-adoption" class="vis-container vis-pending">Chart 12: adoption waiting times</div>
+
+      <div class="story-row">
+        <div class="text-card">
+          <h3>You’re not alone</h3>
+          <p class="placeholder">YOUR TEXT: most people support keeping cats in at night.</p>
         </div>
+        <div id="vis-containment" class="chart-card pending">Diverging bar: support for keeping cats in</div>
+      </div>
+
+      <div class="call-to-action">
+        <h3>What you can do</h3>
+        <p class="placeholder">YOUR TEXT: desex, microchip, register, and keep your cat safe at home.</p>
       </div>
     </section>
 
-    <section id="section-5">
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <h2><span class="section-number">5</span>Keeping cats safe at home</h2>
-        </div>
-      </div>
-      <div class="pure-g">
-        <div class="pure-u-1-1">
-          <div id="vis-containment" class="vis-container vis-pending">Chart 13: containment support</div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="pure-g">
-      <div class="pure-u-1-1 small-font">
-        <h3>Data sources</h3>
-        <ul>
-          <li>Townsville City Council, Animal Registrations, March 2026.</li>
-          <li>Golden Plains Shire Council, Animal Registrations.</li>
-          <li>Surf Coast Shire Council, Registered Animals.</li>
-        </ul>
-        <h3>References</h3>
-        <ul>
-          <li>Layout: <a href="https://purecss.io/" target="_blank">Pure.css</a> v2.0.3 grid system.</li>
-          <li>Charts and maps: <a href="https://vega.github.io/vega-lite/" target="_blank">Vega-Lite</a> v5.5.0, <a href="https://vega.github.io/vega/" target="_blank">Vega</a> v5.22.1 and <a href="https://github.com/vega/vega-embed" target="_blank">Vega-Embed</a> v6.21.0.</li>
-          <li>Fonts: <a href="https://fonts.google.com/specimen/Fraunces" target="_blank">Fraunces</a> (headings) and <a href="https://fonts.google.com/specimen/Nunito" target="_blank">Nunito</a> (body text), from Google Fonts, under the SIL Open Font License.</li>
-        </ul>
-        <p class="placeholder">YOUR TEXT: author, date, AI acknowledgement.</p>
-      </div>
+    <footer class="small-font">
+      <h3>Data sources</h3>
+      <ul>
+        <li>Townsville City Council, Animal Registrations, March 2026.</li>
+        <li>Golden Plains Shire Council, Animal Registrations.</li>
+        <li>Surf Coast Shire Council, Registered Animals.</li>
+      </ul>
+      <h3>References</h3>
+      <ul>
+        <li>Charts and maps: <a href="https://vega.github.io/vega-lite/" target="_blank">Vega-Lite</a> v5.5.0, <a href="https://vega.github.io/vega/" target="_blank">Vega</a> v5.22.1 and <a href="https://github.com/vega/vega-embed" target="_blank">Vega-Embed</a> v6.21.0.</li>
+        <li>Fonts: <a href="https://fonts.google.com/specimen/Fraunces" target="_blank">Fraunces</a> (headings) and <a href="https://fonts.google.com/specimen/Nunito" target="_blank">Nunito</a> (body text), from Google Fonts, under the SIL Open Font License.</li>
+      </ul>
+      <p class="placeholder">YOUR TEXT: author, date, AI acknowledgement.</p>
     </footer>
 
-  </div>
+  </main>
 
   <script type="text/javascript">
     vegaEmbed('#vis-pictogram', "js_charts/pictogram.vg.json", { "actions": false }).catch(console.error);
