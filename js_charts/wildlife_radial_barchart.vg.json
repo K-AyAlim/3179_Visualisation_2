@@ -10,32 +10,46 @@
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
   "data": { "url": "data_sources/wildlife_radial_barchart.csv" },
   "transform": [
-    { "calculate": "1", "as": "slice" },
+    { "window": [{ "op": "row_number", "as": "rank" }] },
+    { "calculate": "5 - datum.rank", "as": "ring_inner" },
+    { "calculate": "datum.ring_inner + 0.75", "as": "ring_outer" },
+    { "calculate": "datum.ring_inner + 0.375", "as": "ring_middle" },
+    { "calculate": "0", "as": "start" },
     {
-      "calculate": "datum.animal_type + '\\n' + datum.label",
+      "calculate": "datum.animal_type + ' · ' + datum.label",
       "as": "wedge_label"
     }
   ],
   "encoding": {
-    "theta": { "field": "slice", "type": "quantitative", "stack": true },
-    "radius": {
-      "field": "killed_millions",
+    "theta": {
+      "field": "start",
       "type": "quantitative",
-      "scale": { "type": "sqrt", "zero": true, "rangeMin": 20 }
+      "scale": { "domain": [0, 1400] }
+    },
+    "radius": {
+      "field": "ring_middle",
+      "type": "quantitative",
+      "scale": { "domain": [0, 5] }
     }
   },
   "layer": [
     {
       "mark": {
         "type": "arc",
-        "innerRadius": 20,
         "stroke": "#ffffff",
         "strokeWidth": 3,
         "cornerRadius": 4
       },
       "encoding": {
-        "color": { "field": "animal_type", "type": "nominal", "legend": null,
-           "scale": { "range": ["#b8476e", "#d07a95", "#e3a1b6", "#5a3a2e"] } },
+        "theta2": { "field": "killed_millions" },
+        "radius": { "field": "ring_outer" },
+        "radius2": { "field": "ring_inner" },
+        "color": {
+          "field": "animal_type",
+          "type": "nominal",
+          "legend": null,
+          "scale": { "range": ["#b8476e", "#d07a95", "#e3a1b6", "#5a3a2e"] }
+        },
         "tooltip": [
           { "field": "animal_type", "type": "nominal", "title": "Animals" },
           {
@@ -50,10 +64,10 @@
     {
       "mark": {
         "type": "text",
-        "radiusOffset": 30,
+        "align": "right",
+        "dx": -8,
         "fontSize": 13,
-        "fontWeight": "bold",
-        "lineBreak": "\n"
+        "fontWeight": "bold"
       },
       "encoding": {
         "text": { "field": "wedge_label", "type": "nominal" },
