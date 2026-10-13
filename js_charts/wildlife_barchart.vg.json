@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Impact of Pet and Feral Cats on Wildlife",
+    "subtitle": "Cats are perfect predators, and their impact on their surroundings is devastating",
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 180,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+  "data": { "url": "data_sources/wildlife_barchart.csv" },
+  "encoding": {
+    "y": {
+      "field": "animal_type",
+      "type": "nominal",
+      "title": null,
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 14,
+        "labelPadding": 24,
+        "labelFont": "Fraunces",
+        "labelFontWeight": 600
+      }
+    },
+    "x": {
+      "field": "killed_millions",
+      "type": "quantitative",
+      "axis": null,
+      "scale": { "domain": [0, 1300] }
+    }
+  },
+  "layer": [
+    {
+      "mark": { "type": "bar", "cornerRadiusEnd": 4 },
+      "encoding": {
+        "color": { "value": "#b8476e" },
+        "tooltip": [
+          { "field": "animal_type", "type": "nominal", "title": "Animals" },
+          {
+            "field": "killed_millions",
+            "type": "quantitative",
+            "title": "how many millions killed",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": { "field": "label", "type": "nominal" },
+        "color": { "value": "#7a5a50" }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "font": "Nunito",
+    "title": { "font": "Fraunces", "fontSize": 18, "subtitleColor": "#7a5a50" }
+  }
+}
