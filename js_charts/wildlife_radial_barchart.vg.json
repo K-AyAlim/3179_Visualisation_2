@@ -2,38 +2,37 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Impact of Pet and Feral Cats on Wildlife",
-    "subtitle": "Cats are perfect predators, and their impact on their surroundings is devastating",
+    "subtitle": "Each bar length represents the estimated number of animals killed in millions per year",
     "anchor": "start"
   },
-  "width": "container",
-  "height": 180,
-  "autosize": { "type": "fit", "contains": "padding" },
+  "width": 360,
+  "height": 360,
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
-  "data": { "url": "data_sources/wildlife_barchart.csv" },
+  "data": { "url": "data_sources/wildlife_radial_barchart.csv" },
+  "transform": [
+    { "calculate": "1", "as": "slice" },
+    {
+      "calculate": "datum.animal_type + '\\n' + datum.label",
+      "as": "wedge_label"
+    }
+  ],
   "encoding": {
-    "y": {
-      "field": "animal_type",
-      "type": "nominal",
-      "title": null,
-      "axis": {
-        "domain": false,
-        "ticks": false,
-        "labelFontSize": 14,
-        "labelPadding": 24,
-        "labelFont": "Fraunces",
-        "labelFontWeight": 600
-      }
-    },
-    "x": {
+    "theta": { "field": "slice", "type": "quantitative", "stack": true },
+    "radius": {
       "field": "killed_millions",
       "type": "quantitative",
-      "axis": null,
-      "scale": { "domain": [0, 1300] }
+      "scale": { "type": "sqrt", "zero": true, "rangeMin": 20 }
     }
   },
   "layer": [
     {
-      "mark": { "type": "bar", "cornerRadiusEnd": 4 },
+      "mark": {
+        "type": "arc",
+        "innerRadius": 20,
+        "stroke": "#ffffff",
+        "strokeWidth": 3,
+        "cornerRadius": 4
+      },
       "encoding": {
         "color": { "value": "#b8476e" },
         "tooltip": [
@@ -41,8 +40,8 @@
           {
             "field": "killed_millions",
             "type": "quantitative",
-            "title": "how many millions killed",
-            "format": ".1f"
+            "title": "Killed per year (millions)",
+            "format": ","
           }
         ]
       }
@@ -50,13 +49,13 @@
     {
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 8,
+        "radiusOffset": 30,
         "fontSize": 13,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "lineBreak": "\n"
       },
       "encoding": {
-        "text": { "field": "label", "type": "nominal" },
+        "text": { "field": "wedge_label", "type": "nominal" },
         "color": { "value": "#7a5a50" }
       }
     }
