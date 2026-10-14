@@ -106,6 +106,13 @@ h3 {
   border-radius: 12px;
 }
 
+.story-row .chart-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .pending {
   display: flex;
   align-items: center;
