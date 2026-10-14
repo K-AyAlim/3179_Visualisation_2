@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Sentiment on keeping cats contained",
+    "subtitle": "South Australians surveyed in 2024",
+    "anchor": "start"
+  },
+  "data": { "url": "data_sources/div_barchart.csv" },
+  "transform": [
+    {
+      "calculate": "indexof(['Support', 'Neither', 'Oppose'], datum.support_category)",
+      "as": "order"
+    }
+  ],
+  "width": "container",
+  "height": 60,
+"autosize": { "type": "fit-x", "contains": "padding" },
+  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+  "encoding": {
+  "order": { "field": "order" }
+},
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+"x": {
+  "field": "support_level",
+  "type": "quantitative",
+  "stack": "normalize",
+  "axis": null
+},
+        "color": {
+          "field": "support_category",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": ["Support", "Neither", "Oppose"],
+            "range": ["#b8476e", "#d8ccc6", "#5a3a2e"]
+          },
+          "legend": { "orient": "bottom" }
+        }
+      }
+    },
+    {
+      "mark": { "type": "text", "fontWeight": "bold", "fontSize": 14 },
+      "encoding": {
+        "x": {
+          "field": "support_level",
+          "type": "quantitative",
+          "stack": "normalize",
+          "bandPosition": 0.5,
+          "axis": null
+        },
+        "text": { "field": "label", "type": "nominal" },
+        "detail": { "field": "support_category" },
+        "color": {
+          "condition": {
+            "test": "datum.support_category == 'Neither'",
+            "value": "#3b2620"
+          },
+          "value": "white"
+        }
+      }
+    }
+  ],
+  "config": {
+  "view": { "stroke": null },
+  "font": "Nunito",
+  "title": { "font": "Fraunces", "fontSize": 18, "subtitleColor": "#7a5a50" }
+}
+}
