@@ -6,7 +6,7 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 180,
+  "height": 280,
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
   "data": { "url": "data_sources/adoption_barchart.csv" },
