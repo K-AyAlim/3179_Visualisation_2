@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Every town has a different favourite",
+    "subtitle": "Share of each council's purebred cats, by breed",
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 380,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+
+  "data": { "url": "data_sources/heatmap_purebreds.csv" },
+
+  "transform": [
+    {
+      "joinaggregate": [{ "op": "sum", "field": "cats", "as": "council_total" }],
+      "groupby": ["council"]
+    },
+    { "calculate": "datum.cats / datum.council_total", "as": "share" }
+  ],
+
+  "encoding": {
+    "x": {
+      "field": "council",
+      "type": "nominal",
+      "title": null,
+      "sort": ["Townsville", "Golden Plains", "Surf Coast"],
+      "axis": {
+        "orient": "top",
+        "domain": false,
+        "ticks": false,
+        "labelAngle": 0,
+        "labelFontSize": 13,
+        "labelFont": "Fraunces",
+        "labelFontWeight": 600
+      }
+    },
+    "y": {
+      "field": "breed",
+      "type": "nominal",
+      "title": null,
+      "sort": ["Ragdoll", "Burmese", "British Shorthair", "Siamese", "Russian Blue", "Tonkinese", "Birman", "Persian", "Maine Coon", "Bengal", "Other purebred"],
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 13,
+        "labelPadding": 10
+      }
+    }
+  },
+
+  "layer": [
+    {
+      "mark": { "type": "rect", "stroke": "#ffffff", "strokeWidth": 2, "cornerRadius": 4 },
+      "encoding": {
+        "color": {
+          "field": "share",
+          "type": "quantitative",
+          "title": "Share of purebreds",
+          "scale": { "range": ["#fbe8ec", "#b8476e"] },
+          "legend": { "format": ".0%", "orient": "bottom", "gradientLength": 200 }
+        },
+        "tooltip": [
+          { "field": "council", "type": "nominal", "title": "Council" },
+          { "field": "breed", "type": "nominal", "title": "Breed" },
+          { "field": "cats", "type": "quantitative", "title": "Cats" },
+          { "field": "share", "type": "quantitative", "title": "Share", "format": ".1%" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "text", "fontSize": 12, "fontWeight": "bold" },
+      "encoding": {
+        "text": { "field": "share", "type": "quantitative", "format": ".0%" },
+        "color": {
+          "condition": { "test": "datum.share > 0.25", "value": "#ffffff" },
+          "value": "#3b2620"
+        },
+        "opacity": {
+          "condition": { "test": "datum.cats == 0", "value": 0 },
+          "value": 1
+        }
+      }
+    }
+  ],
+
+  "config": {
+    "view": { "stroke": null },
+    "font": "Nunito",
+    "title": { "font": "Fraunces", "fontSize": 18, "subtitleColor": "#7a5a50" }
+  }
+}
