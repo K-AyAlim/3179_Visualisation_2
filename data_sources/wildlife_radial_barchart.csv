@@ -1,5 +1,4 @@
-animal_type,killed_millions,label
-Mammals,1067,1.067 Billion
-Reptiles,609,609 Million
-Birds,399,399 Million
-Frogs,93,93 Million
+animal_type,killed
+Reptiles,40
+Birds,38
+Mammals,32

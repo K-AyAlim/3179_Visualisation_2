@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "5,148 cats were euthanised by the RSPCA in 2023–24",
+    "subtitle": "Reasons given",
+    "anchor": "start"
+  },
+  "width": 360,
+  "height": 360,
+  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+  "data": { "url": "data_sources/euthanasia_radial_chart.csv" },
+  "transform": [
+    {
+      "calculate": "datum.Reason + ': ' + format(datum.Number_Euthanised, ',')",
+      "as": "label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "arc", "innerRadius": 20, "stroke": "#fff" },
+      "encoding": {
+        "tooltip": [
+          { "field": "Reason", "type": "nominal" },
+          {
+            "field": "Number_Euthanised",
+            "type": "quantitative",
+            "title": "Cats euthanised",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "encoding": {
+    "theta": {
+      "field": "Number_Euthanised",
+      "type": "quantitative",
+      "stack": true
+    },
+    "radius": {
+      "field": "Number_Euthanised",
+      "type": "quantitative",
+      "scale": { "type": "sqrt", "zero": true, "rangeMin": 20 }
+    },
+    "color": {
+      "field": "Reason",
+      "type": "nominal",
+      "legend": { "orient": "right", "labelFontSize": 13, "symbolType": "square", "symbolSize": 200 },
+      "scale": {
+        "range": ["#b8476e", "#5a3a2e", "#8a6d9e", "#e8b4c4"]
+      }
+    }
+  },
+  "config": {
+    "view": { "stroke": null },
+    "font": "Nunito",
+    "title": { "font": "Fraunces", "fontSize": 18, "subtitleColor": "#7a5a50" }
+  }
+}
