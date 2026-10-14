@@ -32,16 +32,18 @@
 
       <div class="story-row">
         <div class="text-card">
-          <h3>1 in 3 homes has a cat</h3>
-          <p class="placeholder">YOUR TEXT: how common cats are compared with other pets.</p>
+          <h3>1 in 3 homes has a cat!</h3>
+          <p >The 2025 Pet Ownership Study revealed that cats are the second most popular pet in Australia, so much so that 33% of all households in the country have a purring pet.</p>
         </div>
         <div id="vis-pictogram" class="chart-card"></div>
       </div>
     </section>
 
     <section id="section-2">
-      <h2><span class="section-number">2</span>Meeting the Mixed Meows ≽^•˕• ྀི≼</h2>
-      <p class="section-subtitle">Most cats aren’t purebred, but they are purrfect either way</p>
+      <h2><span class="section-number">2</span>Meeting the Mixed ≽^•˕• ྀི≼</h2>
+      <p class="section-subtitle">Most cats aren’t purebred, but they are all claw-some!
+In this section we will breakdown the breed frequencies in the places that publish their data and explore that while purebreds get a lot of attention, they are a much smaller part than you think. 
+</p>
 
       <div class="story-row reverse">
         <div class="text-card">
@@ -69,12 +71,12 @@
     </section>
 
     <section id="section-3">
-      <h2><span class="section-number">3</span>Why Desex and Microchip?</h2>
-      <p class="section-subtitle">The reasons cats need to be desexed and microchipped</p>
+      <h2><span class="section-number">3</span>Why Desex and Microchip? []=[""|""|""])>--- </h2>
+      <p class="section-subtitle">Microchipping, registering and desexing cats is a level of care every responsible owner owes to their pet. Let’s explore what happens when cats get lost and end up roaming, from ending up in shelters to threatening wildlife. </p>
 
       <div class="story-row">
         <div class="text-card">
-          <h3>Hurray: most find a home</h3>
+          <h3>Thankfully most make it home! </h3>
           <p class="placeholder">YOUR TEXT: share of cats rehomed by state, and cats reunited with owners.</p>
         </div>
         <div id="vis-map-rehomed" class="chart-card pending">Map: % of cats rehomed by state</div>
@@ -93,7 +95,7 @@
           <h3>Oh no: not every cat makes it</h3>
           <p class="placeholder">YOUR TEXT: how many cats are euthanised, and why.</p>
         </div>
-        <div id="vis-radial" class="chart-card pending">Radial chart: reasons cats are euthanised</div>
+        <div id="vis-euth-rad-chart" class="chart-card"></div>
       </div>
 
       <div class="story-row reverse">
@@ -106,7 +108,7 @@
     </section>
 
     <section id="section-4">
-      <h2><span class="section-number">4</span>Care Close to Home</h2>
+      <h2><span class="section-number">4</span>Care Close to Home ≽^- ˕ -^≼</h2>
       <p class="section-subtitle">Desexing and registration in real life, and what you can do</p>
 
       <div class="story-row">
@@ -130,12 +132,12 @@
           <h3>You’re not alone</h3>
           <p class="placeholder">YOUR TEXT: most people support keeping cats in at night.</p>
         </div>
-        <div id="vis-containment" class="chart-card pending">Diverging bar: support for keeping cats in</div>
+        <div id="vis-div-barchart" class="chart-card"></div>
       </div>
 
       <div class="call-to-action">
-        <h3>What you can do</h3>
-        <p class="placeholder">YOUR TEXT: desex, microchip, register, and keep your cat safe at home.</p>
+        <h3>Their safety is in YOUR hands!</h3>
+        <p class="placeholder">Keep your cat safe by registering, desexing and microchipping them!</p>
       </div>
     </section>
 
@@ -151,7 +153,7 @@
         <li>Charts and maps: <a href="https://vega.github.io/vega-lite/" target="_blank">Vega-Lite</a> v5.5.0, <a href="https://vega.github.io/vega/" target="_blank">Vega</a> v5.22.1 and <a href="https://github.com/vega/vega-embed" target="_blank">Vega-Embed</a> v6.21.0.</li>
         <li>Fonts: <a href="https://fonts.google.com/specimen/Fraunces" target="_blank">Fraunces</a> (headings) and <a href="https://fonts.google.com/specimen/Nunito" target="_blank">Nunito</a> (body text), from Google Fonts, under the SIL Open Font License.</li>
       </ul>
-      <p class="placeholder">YOUR TEXT: author, date, AI acknowledgement.</p>
+      <p class="placeholder">Author: Korkem-Ay Alim. AI acknowledgement: AI has been used in the making of this assignment, the word document contains the complete breakdown of the usage.</p>
     </footer>
 
   </main>
@@ -161,6 +163,8 @@
     vegaEmbed('#vis-waffle', "js_charts/wafflechart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-adopt-barchart', "js_charts/adoption_barchart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-wild-rad-barchart', "js_charts/wildlife_radial_barchart.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-euth-rad-chart', "js_charts/euthanised_radial_chart.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-div-barchart', "js_charts/div_bar.vg.json", { "actions": false }).catch(console.error);
   </script>
 </body>
 
