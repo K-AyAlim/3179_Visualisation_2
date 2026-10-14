@@ -96,6 +96,9 @@ h3 {
 .text-card p {
   max-width: 65ch;
   margin: 0 0 12px 0;
+  background-color: #fbe0e7;
+  padding: 6px 10px;
+  border-radius: 4px;
 }
 
 .chart-card {
