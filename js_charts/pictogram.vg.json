@@ -37,6 +37,7 @@
   },
   "layer": [
     {
+      "transform": [{ "filter": "datum.index < datum.houses" }],
       "mark": {
         "type": "point",
         "filled": true,
@@ -71,7 +72,7 @@
       }
     },
     {
-      "transform": [{ "filter": "datum.index == 19" }],
+      "transform": [{ "filter": "datum.index == datum.houses - 1" }],
       "mark": {
         "type": "text",
         "align": "left",
