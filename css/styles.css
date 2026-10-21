@@ -157,13 +157,8 @@ footer a {
   color: var(--accent);
 }
 
-@media (max-width: 760px) {
-  .page {
-    padding: 30px 20px;
-  }
-
   .story-row,
   .story-row.reverse {
     flex-direction: column;
   }
-}
+
