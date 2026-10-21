@@ -62,6 +62,6 @@
   "config": {
     "view": { "stroke": null },
     "font": "Nunito",
-    "title": { "font": "Fraunces", "fontSize": 18, "subtitleColor": "#7a5a50" }
+    "title": { "font": "Fredoka", "fontSize": 18, "subtitleColor": "#7a5a50" }
   }
 }
