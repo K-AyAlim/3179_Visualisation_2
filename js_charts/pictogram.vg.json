@@ -30,7 +30,7 @@
         "ticks": false,
         "labelFontSize": 14,
         "labelPadding": 24,
-        "labelFont": "Fraunces",
+        "labelFont": "Fredoka",
         "labelFontWeight": 600
       }
     }
@@ -100,6 +100,6 @@
   "config": {
     "view": { "stroke": null },
     "font": "Nunito",
-    "title": { "font": "Fraunces", "fontSize": 18, "subtitleColor": "#7a5a50" }
+    "title": { "font": "Fredoka", "fontSize": 18, "subtitleColor": "#7a5a50" }
   }
 }
