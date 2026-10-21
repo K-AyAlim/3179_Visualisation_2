@@ -24,7 +24,7 @@
       "field": "pet_type",
       "type": "nominal",
       "title": null,
-      "sort": ["Dogs", "Cats", "Fish", "Birds", "No pets"],
+      "sort": ["Dogs", "Cats", "Fish", "Birds"],
       "axis": {
         "domain": false,
         "ticks": false,
