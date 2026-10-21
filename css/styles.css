@@ -156,9 +156,3 @@ footer {
 footer a {
   color: var(--accent);
 }
-
-  .story-row,
-  .story-row.reverse {
-    flex-direction: column;
-  }
-
