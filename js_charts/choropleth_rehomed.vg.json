@@ -34,15 +34,14 @@
               "url": "data_sources/cats_home_by_state.csv",
               "format": {
                 "type": "csv",
-                "parse": { "reclaimed": "number", "returned": "number", "rehomed": "number", "total_cats": "number" }
+                "parse": { "returned": "number", "total_cats": "number" }
               }
             },
             "key": "state",
-            "fields": ["reclaimed", "returned", "rehomed", "total_cats"]
+            "fields": ["returned", "total_cats"]
           }
         },
-        { "calculate": "datum.reclaimed + datum.returned + datum.rehomed", "as": "made_it_home" },
-        { "calculate": "datum.made_it_home / datum.total_cats", "as": "share_home" }
+        { "calculate": "datum.returned / datum.total_cats", "as": "share_home" }
       ],
       "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 1.5 },
       "encoding": {
@@ -59,7 +58,7 @@
         },
         "tooltip": [
           { "field": "properties.STE_NAME16", "type": "nominal", "title": "State" },
-          { "field": "made_it_home", "type": "quantitative", "title": "Cats that made it home", "format": "," },
+          { "field": "returned", "type": "quantitative", "title": "Cats that made it home", "format": "," },
           { "field": "total_cats", "type": "quantitative", "title": "Total cats", "format": "," },
           { "field": "share_home", "type": "quantitative", "title": "Share", "format": ".1%" }
         ]
@@ -82,15 +81,15 @@
               "url": "data_sources/cats_home_by_state.csv",
               "format": {
                 "type": "csv",
-                "parse": { "reclaimed": "number", "returned": "number", "rehomed": "number", "total_cats": "number" }
+                "parse": { "returned": "number", "total_cats": "number" }
               }
             },
             "key": "state",
-            "fields": ["state_code", "reclaimed", "returned", "rehomed", "total_cats"]
+            "fields": ["state_code", "returned", "total_cats"]
           }
         },
         {
-          "calculate": "datum.state_code + ' ' + format((datum.reclaimed + datum.returned + datum.rehomed) / datum.total_cats, '.0%')",
+          "calculate": "datum.state_code + ' ' + format(datum.returned / datum.total_cats, '.0%')",
           "as": "map_label"
         }
       ],
