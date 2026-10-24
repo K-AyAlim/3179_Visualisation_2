@@ -1,0 +1,293 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Desexing a cat costs around $185–$245",
+    "subtitle": "Average cost to desex a cat in 2026, by state",
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 520,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "padding": {
+    "top": 20,
+    "bottom": 20,
+    "left": 24,
+    "right": 24
+  },
+  "data": {
+    "url": "js_charts/aus_state_map.topojson",
+    "format": {
+      "type": "topojson",
+      "feature": "STE_2016_AUST"
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.properties.STE_NAME16 != 'Other Territories'"
+    }
+  ],
+  "projection": {
+    "type": "equalEarth",
+    "rotate": [
+      -134,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "calculate": "'Data is not available in ' + datum.properties.STE_NAME16",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "white"
+      },
+      "encoding": {
+        "tooltip": {
+          "field": "note"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.STE_NAME16",
+          "from": {
+            "data": {
+              "url": "data_sources/desexing_cost_by_state.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "average_cost": "number",
+                  "low_cost": "number",
+                  "high_cost": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "average_cost",
+              "low_cost",
+              "high_cost"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "average_cost",
+          "type": "quantitative",
+          "title": "Average desexing cost",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              200,
+              220,
+              240
+            ],
+            "range": [
+              "#f3e6df",
+              "#d8b9a8",
+              "#a97c66",
+              "#5a3a2e"
+            ]
+          },
+          "legend": {
+            "format": "$,.0f",
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.STE_NAME16",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "average_cost",
+            "type": "quantitative",
+            "title": "Average cost",
+            "format": "$,.0f"
+          },
+          {
+            "field": "low_cost",
+            "type": "quantitative",
+            "title": "Lowest typical cost",
+            "format": "$,.0f"
+          },
+          {
+            "field": "high_cost",
+            "type": "quantitative",
+            "title": "Highest typical cost",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.STE_NAME16",
+          "from": {
+            "data": {
+              "url": "data_sources/state_label_positions.csv"
+            },
+            "key": "state",
+            "fields": [
+              "latitude",
+              "longitude",
+              "placement"
+            ]
+          }
+        },
+        {
+          "lookup": "properties.STE_NAME16",
+          "from": {
+            "data": {
+              "url": "data_sources/desexing_cost_by_state.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "average_cost": "number",
+                  "low_cost": "number",
+                  "high_cost": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "state_code",
+              "average_cost"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.state_code + ' $' + datum.average_cost",
+          "as": "map_label"
+        },
+        {
+          "filter": "datum.placement == 'inside'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "map_label",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.average_cost >= 240",
+            "value": "#ffffff"
+          },
+          "value": "#3b2620"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.STE_NAME16",
+          "from": {
+            "data": {
+              "url": "data_sources/state_label_positions.csv"
+            },
+            "key": "state",
+            "fields": [
+              "latitude",
+              "longitude",
+              "placement"
+            ]
+          }
+        },
+        {
+          "lookup": "properties.STE_NAME16",
+          "from": {
+            "data": {
+              "url": "data_sources/desexing_cost_by_state.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "average_cost": "number",
+                  "low_cost": "number",
+                  "high_cost": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "state_code",
+              "average_cost"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.state_code + ' $' + datum.average_cost",
+          "as": "map_label"
+        },
+        {
+          "filter": "datum.placement == 'outside'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#3b2620",
+        "align": "left",
+        "dx": 4
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "map_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Nunito",
+    "title": {
+      "font": "Fredoka",
+      "fontSize": 18,
+      "subtitleColor": "#7a5a50"
+    }
+  }
+}

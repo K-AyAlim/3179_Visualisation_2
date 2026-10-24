@@ -114,10 +114,10 @@ In this section we will breakdown the breed frequencies in the places that publi
 
       <div class="story-row">
         <div class="text-card">
-          <h3>1 in 3 cats isn’t registered</h3>
-          <p class="placeholder">Registration, desexing and microchipping rates vary a lot between South Australian councils.</p>
+          <h3>Desexing costs less than you think</h3>
+          <p>Desexing a cat costs an average of between $185 in Tasmania and $245 in New South Wales. That is a one-off cost, far less than raising an unplanned litter of kittens, and many councils and the National Desexing Network offer discounted desexing for owners who need help.</p>
         </div>
-        <div id="vis-map-sa" class="chart-card pending">Small-multiple maps: South Australian councils/Another Map Idiom</div>
+        <div id="vis-map-desex-cost" class="chart-card wide-chart"></div>
       </div>
 
       <div class="story-row reverse">
@@ -154,6 +154,8 @@ In this section we will breakdown the breed frequencies in the places that publi
         <li>RSPCA Australia (2022), <a href="https://rspca.org.au/blog/importance-microchipping-pets/" target="_blank">Importance of microchipping pets</a>.</li>
         <li>Legge, S. et al. (2020), Threatened Species Recovery Hub, <a href="https://www.nespthreatenedspecies.edu.au/news-and-media/media-releases/each-roaming-pet-cat-kills-110-native-animals-per-year-on-average" target="_blank">Each roaming pet cat kills 110 native animals per year on average</a>.</li>
         <li>Square Holes for the Dog and Cat Management Board (2024), Cat Containment Survey Wave 2 Report, South Australia.</li>
+        <li>AusCostGuides (2026), <a href="https://auscostguides.com.au/how-much-does-cat-desexing-cost-australia/" target="_blank">Cat Desexing Cost Australia 2026: Male vs Female Prices</a>.</li>
+        <li>Australian Bureau of Statistics (2016), Australian Statistical Geography Standard (ASGS): State and Territory (STE) boundaries.</li>
         <li class="placeholder">Pound holding periods (4 days, or 8 if microchipped): add source its in one of the open tabs.</li>
       </ul>
       <h3>References</h3>
@@ -175,6 +177,7 @@ In this section we will breakdown the breed frequencies in the places that publi
     vegaEmbed('#vis-waffle', "js_charts/wafflechart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-mosaic', "js_charts/mosaic.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-map-rehomed', "js_charts/choropleth_rehomed.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-map-desex-cost', "js_charts/choropleth_desexing_cost.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-adopt-barchart', "js_charts/adoption_barchart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-euth-lollipop', "js_charts/euthanasia_lollipop.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-wild-rad-barchart', "js_charts/wildlife_radial_barchart.vg.json", { "actions": false }).catch(console.error);

@@ -1,0 +1,9 @@
+state,state_code,average_cost,low_cost,high_cost
+New South Wales,NSW,245,180,350
+Victoria,VIC,235,175,340
+Queensland,QLD,210,150,290
+Western Australia,WA,225,160,310
+South Australia,SA,195,140,270
+Tasmania,TAS,185,130,255
+Australian Capital Territory,ACT,240,175,335
+Northern Territory,NT,215,155,295
