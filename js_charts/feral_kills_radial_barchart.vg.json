@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Feral cats kill over 2 billion animals a year",
+    "subtitle": "Mammals, reptiles and birds killed each year by feral cats in Australia",
+    "anchor": "start"
+  },
+  "width": 400,
+  "height": 400,
+  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+  "data": { "url": "data_sources/feral_cat_kills.csv" },
+  "transform": [
+    { "window": [{ "op": "row_number", "as": "rank" }] },
+    { "calculate": "4 - datum.rank", "as": "ring_inner" },
+    { "calculate": "datum.ring_inner + 0.75", "as": "ring_outer" },
+    { "calculate": "datum.ring_inner + 0.375", "as": "ring_middle" },
+    { "calculate": "0", "as": "start" },
+    { "calculate": "datum.animal_type + ' · ' + datum.label", "as": "wedge_label" }
+  ],
+  "encoding": {
+    "theta": { "field": "start", "type": "quantitative", "scale": { "domain": [0, 1500] } },
+    "radius": { "field": "ring_middle", "type": "quantitative", "scale": { "domain": [0, 4] } }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "stroke": "#ffffff",
+        "strokeWidth": 3,
+        "cornerRadius": 4
+      },
+      "encoding": {
+        "theta2": { "field": "killed_millions" },
+        "radius": { "field": "ring_outer" },
+        "radius2": { "field": "ring_inner" },
+        "color": {
+          "field": "animal_type",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": ["Mammals", "Reptiles", "Birds"],
+            "range": ["#b8476e", "#8a6d9e", "#e3a1b6"]
+          }
+        },
+        "tooltip": [
+          { "field": "animal_type", "type": "nominal", "title": "Animals" },
+          { "field": "label", "type": "nominal", "title": "Killed by feral cats per year" }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": { "field": "wedge_label", "type": "nominal" },
+        "color": { "value": "#7a5a50" }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "font": "Nunito",
+    "title": { "font": "Fredoka", "fontSize": 18, "subtitleColor": "#7a5a50" }
+  }
+}

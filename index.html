@@ -123,9 +123,9 @@ In this section we will breakdown the breed frequencies in the places that publi
             <div class="story-row">
         <div class="text-card">
           <h3>Feral cats killing native species </h3>
-          <p class="placeholder">Even within one city, some suburbs have far more cats, and far fewer desexed, than others.</p>
+          <p>Feral cats kill an estimated 2 billion mammals, reptiles and birds across Australia every year, most of them native species. Many feral cats are descended from pets that were abandoned or allowed to breed, which is why desexing is one of the most effective ways to stop the feral population from growing.</p>
         </div>
-        <div id="vis-map-townsville" class="chart-card pending"> Prop Symbol map: Townsville suburbs</div>
+        <div id="vis-feral-radial" class="chart-card"></div>
       </div>
              </section>
 
@@ -168,6 +168,7 @@ In this section we will breakdown the breed frequencies in the places that publi
         <li>RSPCA Australia (2024), <a href="https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/annual-statistics/RSPCA-Report-on-Animal-Outcomes-2023-2024.pdf" target="_blank">Animal Outcomes from Our Shelters, Care and Adoption Centres 2023–24</a>.</li>
         <li>RSPCA Australia (2022), <a href="https://rspca.org.au/blog/importance-microchipping-pets/" target="_blank">Importance of microchipping pets</a>.</li>
         <li>Legge, S. et al. (2020), Threatened Species Recovery Hub, <a href="https://www.nespthreatenedspecies.edu.au/news-and-media/media-releases/each-roaming-pet-cat-kills-110-native-animals-per-year-on-average" target="_blank">Each roaming pet cat kills 110 native animals per year on average</a>.</li>
+        <li>Threatened Species Recovery Hub, National Environmental Science Program, <a href="https://www.nespthreatenedspecies.edu.au/media/2j1j51na/112-the-impact-of-cats-in-australia-findings-factsheetweb.pdf" target="_blank">The impact of cats in Australia (Project 1.1.2 findings factsheet)</a>.</li>
         <li>Square Holes for the Dog and Cat Management Board (2024), Cat Containment Survey Wave 2 Report, South Australia.</li>
         <li>AusCostGuides (2026), <a href="https://auscostguides.com.au/how-much-does-cat-desexing-cost-australia/" target="_blank">Cat Desexing Cost Australia 2026: Male vs Female Prices</a>.</li>
         <li>Atlas of Living Australia (2026), Felis catus occurrence records, accessed October 2026.</li>
@@ -195,6 +196,7 @@ In this section we will breakdown the breed frequencies in the places that publi
     vegaEmbed('#vis-map-rehomed', "js_charts/choropleth_rehomed.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-map-desex-cost', "js_charts/choropleth_desexing_cost.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-map-feral', "js_charts/feral_cat_dot_map.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-feral-radial', "js_charts/feral_kills_radial_barchart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-adopt-barchart', "js_charts/adoption_barchart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-euth-lollipop', "js_charts/euthanasia_lollipop.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-wild-rad-barchart', "js_charts/wildlife_radial_barchart.vg.json", { "actions": false }).catch(console.error);
