@@ -16,7 +16,7 @@
   "transform": [
     { "filter": "datum.properties.STE_NAME16 != 'Other Territories'" }
   ],
-  "projection": { "type": "equalEarth" },
+  "projection": { "type": "equalEarth", "rotate": [-134, 0, 0] },
   "layer": [
     {
       "transform": [
