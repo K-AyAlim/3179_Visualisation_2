@@ -1,0 +1,105 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Most cats are euthanised for medical or behavioural reasons",
+    "subtitle": "Cats euthanised by the RSPCA in 2023–24, by reason (5,148 in total)",
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 260,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+  "data": { "url": "data_sources/euthanasia_reasons.csv" },
+  "transform": [
+    { "joinaggregate": [{ "op": "sum", "field": "Number_Euthanised", "as": "total" }] },
+    { "calculate": "datum.Number_Euthanised / datum.total", "as": "share" },
+    { "calculate": "format(datum.Number_Euthanised, ',') + ' · ' + format(datum.share, '.0%')", "as": "label" }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Number_Euthanised",
+      "type": "quantitative",
+      "axis": null,
+      "scale": { "domain": [0, 2800] }
+    }
+  },
+  "layer": [
+    {
+      "mark": { "type": "rule", "strokeWidth": 3 },
+      "encoding": {
+        "y": {
+          "field": "Reason",
+          "type": "nominal",
+          "title": null,
+          "sort": ["Medical", "Behavioural", "Infectious", "Other"],
+          "axis": {
+            "domain": false,
+            "ticks": false,
+            "labelFontSize": 14,
+            "labelPadding": 12,
+            "labelFont": "Fredoka",
+            "labelFontWeight": 600
+          }
+        },
+        "x2": { "datum": 0 },
+        "color": {
+          "condition": {
+            "test": "datum.Reason == 'Medical' || datum.Reason == 'Behavioural'",
+            "value": "#b8476e"
+          },
+          "value": "#5a3a2e"
+        }
+      }
+    },
+    {
+      "mark": { "type": "point", "filled": true, "size": 300, "opacity": 1 },
+      "encoding": {
+        "y": { "field": "Reason", "type": "nominal", "sort": ["Medical", "Behavioural", "Infectious", "Other"] },
+        "color": {
+          "condition": {
+            "test": "datum.Reason == 'Medical' || datum.Reason == 'Behavioural'",
+            "value": "#b8476e"
+          },
+          "value": "#5a3a2e"
+        },
+        "tooltip": [
+          { "field": "Reason", "type": "nominal", "title": "Reason" },
+          { "field": "Number_Euthanised", "type": "quantitative", "title": "Cats euthanised", "format": "," },
+          { "field": "share", "type": "quantitative", "title": "Share of all cats euthanised", "format": ".1%" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "text", "align": "left", "dx": 16, "fontSize": 13, "fontWeight": "bold" },
+      "encoding": {
+        "y": { "field": "Reason", "type": "nominal", "sort": ["Medical", "Behavioural", "Infectious", "Other"] },
+        "text": { "field": "label", "type": "nominal" },
+        "color": { "value": "#3b2620" }
+      }
+    },
+    {
+      "transform": [{ "aggregate": [{ "op": "mean", "field": "Number_Euthanised", "as": "average" }] }],
+      "mark": { "type": "rule", "strokeDash": [4, 4], "strokeWidth": 1.5, "color": "#7a5a50" },
+      "encoding": {
+        "x": { "field": "average", "type": "quantitative" }
+      }
+    },
+    {
+      "transform": [
+        { "aggregate": [{ "op": "mean", "field": "Number_Euthanised", "as": "average" }] },
+        { "calculate": "'Average: ' + format(datum.average, ',')", "as": "average_label" }
+      ],
+      "mark": { "type": "text", "align": "left", "baseline": "bottom", "dx": 4, "dy": -4, "fontSize": 12, "color": "#7a5a50" },
+      "encoding": {
+        "x": { "field": "average", "type": "quantitative" },
+        "y": { "value": 0 },
+        "text": { "field": "average_label", "type": "nominal" }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "font": "Nunito",
+    "title": { "font": "Fredoka", "fontSize": 18, "subtitleColor": "#7a5a50" }
+  }
+}
