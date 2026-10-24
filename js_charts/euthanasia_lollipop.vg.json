@@ -6,7 +6,7 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 260,
+  "height": 320,
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
   "data": { "url": "data_sources/euthanasia_reasons.csv" },
@@ -16,52 +16,41 @@
     { "calculate": "format(datum.Number_Euthanised, ',') + ' · ' + format(datum.share, '.0%')", "as": "label" }
   ],
   "encoding": {
-    "x": {
+    "y": {
       "field": "Number_Euthanised",
       "type": "quantitative",
-      "axis": null,
-      "scale": { "domain": [0, 2800] }
+      "title": "Cats euthanised",
+      "scale": { "domain": [0, 2500] },
+      "axis": { "format": ",", "tickCount": 5, "titleFont": "Fredoka", "titleFontSize": 13, "titlePadding": 12 }
     }
   },
   "layer": [
     {
-      "mark": { "type": "rule", "strokeWidth": 3 },
+      "mark": { "type": "rule", "strokeWidth": 3, "color": "#b8476e" },
       "encoding": {
-        "y": {
+        "x": {
           "field": "Reason",
           "type": "nominal",
-          "title": null,
+          "title": "Reason for euthanasia",
           "sort": ["Medical", "Behavioural", "Infectious", "Other"],
           "axis": {
-            "domain": false,
-            "ticks": false,
+            "labelAngle": 0,
             "labelFontSize": 14,
-            "labelPadding": 12,
+            "labelPadding": 10,
             "labelFont": "Fredoka",
-            "labelFontWeight": 600
+            "labelFontWeight": 600,
+            "titleFont": "Fredoka",
+            "titleFontSize": 13,
+            "titlePadding": 12
           }
         },
-        "x2": { "datum": 0 },
-        "color": {
-          "condition": {
-            "test": "datum.Reason == 'Medical' || datum.Reason == 'Behavioural'",
-            "value": "#b8476e"
-          },
-          "value": "#5a3a2e"
-        }
+        "y2": { "datum": 0 }
       }
     },
     {
-      "mark": { "type": "point", "filled": true, "size": 300, "opacity": 1 },
+      "mark": { "type": "point", "filled": true, "size": 300, "opacity": 1, "color": "#b8476e" },
       "encoding": {
-        "y": { "field": "Reason", "type": "nominal", "sort": ["Medical", "Behavioural", "Infectious", "Other"] },
-        "color": {
-          "condition": {
-            "test": "datum.Reason == 'Medical' || datum.Reason == 'Behavioural'",
-            "value": "#b8476e"
-          },
-          "value": "#5a3a2e"
-        },
+        "x": { "field": "Reason", "type": "nominal", "sort": ["Medical", "Behavioural", "Infectious", "Other"] },
         "tooltip": [
           { "field": "Reason", "type": "nominal", "title": "Reason" },
           { "field": "Number_Euthanised", "type": "quantitative", "title": "Cats euthanised", "format": "," },
@@ -70,18 +59,17 @@
       }
     },
     {
-      "mark": { "type": "text", "align": "left", "dx": 16, "fontSize": 13, "fontWeight": "bold" },
+      "mark": { "type": "text", "baseline": "bottom", "dy": -14, "fontSize": 13, "fontWeight": "bold", "color": "#3b2620" },
       "encoding": {
-        "y": { "field": "Reason", "type": "nominal", "sort": ["Medical", "Behavioural", "Infectious", "Other"] },
-        "text": { "field": "label", "type": "nominal" },
-        "color": { "value": "#3b2620" }
+        "x": { "field": "Reason", "type": "nominal", "sort": ["Medical", "Behavioural", "Infectious", "Other"] },
+        "text": { "field": "label", "type": "nominal" }
       }
     },
     {
       "transform": [{ "aggregate": [{ "op": "mean", "field": "Number_Euthanised", "as": "average" }] }],
       "mark": { "type": "rule", "strokeDash": [4, 4], "strokeWidth": 1.5, "color": "#7a5a50" },
       "encoding": {
-        "x": { "field": "average", "type": "quantitative" }
+        "y": { "field": "average", "type": "quantitative" }
       }
     },
     {
@@ -89,10 +77,10 @@
         { "aggregate": [{ "op": "mean", "field": "Number_Euthanised", "as": "average" }] },
         { "calculate": "'Average: ' + format(datum.average, ',')", "as": "average_label" }
       ],
-      "mark": { "type": "text", "align": "left", "baseline": "bottom", "dx": 4, "dy": -4, "fontSize": 12, "color": "#7a5a50" },
+      "mark": { "type": "text", "align": "right", "baseline": "bottom", "dy": -4, "fontSize": 12, "color": "#7a5a50" },
       "encoding": {
-        "x": { "field": "average", "type": "quantitative" },
-        "y": { "value": 0 },
+        "y": { "field": "average", "type": "quantitative" },
+        "x": { "value": "width" },
         "text": { "field": "average_label", "type": "nominal" }
       }
     }
