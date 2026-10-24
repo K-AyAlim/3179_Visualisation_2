@@ -30,7 +30,13 @@
         {
           "lookup": "properties.STE_NAME16",
           "from": {
-            "data": { "url": "data_sources/cats_home_by_state.csv" },
+            "data": {
+              "url": "data_sources/cats_home_by_state.csv",
+              "format": {
+                "type": "csv",
+                "parse": { "reclaimed": "number", "returned": "number", "rehomed": "number", "total_cats": "number" }
+              }
+            },
             "key": "state",
             "fields": ["reclaimed", "returned", "rehomed", "total_cats"]
           }
@@ -72,7 +78,13 @@
         {
           "lookup": "properties.STE_NAME16",
           "from": {
-            "data": { "url": "data_sources/cats_home_by_state.csv" },
+            "data": {
+              "url": "data_sources/cats_home_by_state.csv",
+              "format": {
+                "type": "csv",
+                "parse": { "reclaimed": "number", "returned": "number", "rehomed": "number", "total_cats": "number" }
+              }
+            },
             "key": "state",
             "fields": ["state_code", "reclaimed", "returned", "rehomed", "total_cats"]
           }
