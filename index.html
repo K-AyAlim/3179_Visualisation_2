@@ -117,7 +117,7 @@ In this section we will breakdown the breed frequencies in the places that publi
           <h3>But desexing must occur because the consequences are severe! </h3>
           <p class="placeholder">Even within one city, some suburbs have far more cats, and far fewer desexed, than others.</p>
         </div>
-        <div id="vis-map-townsville" class="chart-card pending"> dot   map: feral cats</div>
+        <div id="vis-map-feral" class="chart-card wide-chart"></div>
       </div>
 
             <div class="story-row">
@@ -170,6 +170,7 @@ In this section we will breakdown the breed frequencies in the places that publi
         <li>Legge, S. et al. (2020), Threatened Species Recovery Hub, <a href="https://www.nespthreatenedspecies.edu.au/news-and-media/media-releases/each-roaming-pet-cat-kills-110-native-animals-per-year-on-average" target="_blank">Each roaming pet cat kills 110 native animals per year on average</a>.</li>
         <li>Square Holes for the Dog and Cat Management Board (2024), Cat Containment Survey Wave 2 Report, South Australia.</li>
         <li>AusCostGuides (2026), <a href="https://auscostguides.com.au/how-much-does-cat-desexing-cost-australia/" target="_blank">Cat Desexing Cost Australia 2026: Male vs Female Prices</a>.</li>
+        <li>Atlas of Living Australia (2026), Felis catus occurrence records, accessed October 2026.</li>
         <li>Australian Bureau of Statistics (2016), Australian Statistical Geography Standard (ASGS): State and Territory (STE) boundaries.</li>
         <li class="placeholder">Pound holding periods (4 days, or 8 if microchipped): add source its in one of the open tabs.</li>
       </ul>
@@ -193,6 +194,7 @@ In this section we will breakdown the breed frequencies in the places that publi
     vegaEmbed('#vis-mosaic', "js_charts/mosaic.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-map-rehomed', "js_charts/choropleth_rehomed.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-map-desex-cost', "js_charts/choropleth_desexing_cost.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-map-feral', "js_charts/feral_cat_dot_map.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-adopt-barchart', "js_charts/adoption_barchart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-euth-lollipop', "js_charts/euthanasia_lollipop.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-wild-rad-barchart', "js_charts/wildlife_radial_barchart.vg.json", { "actions": false }).catch(console.error);

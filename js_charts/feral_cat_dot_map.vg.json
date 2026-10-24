@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Cats have been recorded right across Australia",
+    "subtitle": "Each dot is one recorded cat sighting (Atlas of Living Australia). Dots show where cats were reported, not exact population density.",
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 520,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+  "projection": { "type": "equalEarth", "rotate": [-134, 0, 0] },
+  "layer": [
+    {
+      "data": {
+        "url": "js_charts/aus_state_map.topojson",
+        "format": { "type": "topojson", "feature": "STE_2016_AUST" }
+      },
+      "transform": [
+        { "filter": "datum.properties.STE_NAME16 != 'Other Territories'" }
+      ],
+      "mark": { "type": "geoshape", "fill": "#f3e6df", "stroke": "white", "strokeWidth": 1.5 }
+    },
+    {
+      "data": { "url": "data_sources/feral_cat_sightings.csv" },
+      "transform": [
+        { "filter": "datum.longitude >= 112 && datum.longitude <= 154 && datum.latitude >= -44 && datum.latitude <= -10" }
+      ],
+      "mark": { "type": "circle", "size": 4, "opacity": 0.3, "color": "#b8476e" },
+      "encoding": {
+        "longitude": { "field": "longitude", "type": "quantitative" },
+        "latitude": { "field": "latitude", "type": "quantitative" },
+        "tooltip": [
+          { "field": "state", "type": "nominal", "title": "State" },
+          { "field": "year", "type": "nominal", "title": "Year recorded" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "font": "Nunito",
+    "title": { "font": "Fredoka", "fontSize": 18, "subtitleColor": "#7a5a50" }
+  }
+}
