@@ -7,23 +7,54 @@
   },
   "width": "container",
   "height": 420,
-  "autosize": { "type": "fit", "contains": "padding" },
-  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "padding": {
+    "top": 20,
+    "bottom": 20,
+    "left": 24,
+    "right": 24
+  },
   "data": {
     "url": "js_charts/aus_state_map.topojson",
-    "format": { "type": "topojson", "feature": "STE_2016_AUST" }
+    "format": {
+      "type": "topojson",
+      "feature": "STE_2016_AUST"
+    }
   },
   "transform": [
-    { "filter": "datum.properties.STE_NAME16 != 'Other Territories'" }
+    {
+      "filter": "datum.properties.STE_NAME16 != 'Other Territories'"
+    }
   ],
-  "projection": { "type": "equalEarth", "rotate": [-134, 0, 0] },
+  "projection": {
+    "type": "equalEarth",
+    "rotate": [
+      -134,
+      0,
+      0
+    ]
+  },
   "layer": [
     {
       "transform": [
-        { "calculate": "'Data is not available in ' + datum.properties.STE_NAME16", "as": "note" }
+        {
+          "calculate": "'Data is not available in ' + datum.properties.STE_NAME16",
+          "as": "note"
+        }
       ],
-      "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" },
-      "encoding": { "tooltip": { "field": "note" } }
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "white"
+      },
+      "encoding": {
+        "tooltip": {
+          "field": "note"
+        }
+      }
     },
     {
       "transform": [
@@ -34,16 +65,29 @@
               "url": "data_sources/cats_home_by_state.csv",
               "format": {
                 "type": "csv",
-                "parse": { "returned": "number", "total_cats": "number" }
+                "parse": {
+                  "returned": "number",
+                  "total_cats": "number"
+                }
               }
             },
             "key": "state",
-            "fields": ["returned", "total_cats"]
+            "fields": [
+              "returned",
+              "total_cats"
+            ]
           }
         },
-        { "calculate": "datum.returned / datum.total_cats", "as": "share_home" }
+        {
+          "calculate": "datum.returned / datum.total_cats",
+          "as": "share_home"
+        }
       ],
-      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 1.5 },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
       "encoding": {
         "color": {
           "field": "share_home",
@@ -51,16 +95,50 @@
           "title": "Cats that made it home",
           "scale": {
             "type": "threshold",
-            "domain": [0.6, 0.65, 0.7, 0.75],
-            "range": ["#fbe8ec", "#eec8d3", "#e0a8ba", "#d387a0", "#b8476e"]
+            "domain": [
+              0.6,
+              0.65,
+              0.7,
+              0.75
+            ],
+            "range": [
+              "#fbe8ec",
+              "#eec8d3",
+              "#e0a8ba",
+              "#d387a0",
+              "#b8476e"
+            ]
           },
-          "legend": { "format": ".0%", "orient": "bottom", "direction": "horizontal" }
+          "legend": {
+            "format": ".0%",
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
         },
         "tooltip": [
-          { "field": "properties.STE_NAME16", "type": "nominal", "title": "State" },
-          { "field": "returned", "type": "quantitative", "title": "Cats that made it home", "format": "," },
-          { "field": "total_cats", "type": "quantitative", "title": "Total cats", "format": "," },
-          { "field": "share_home", "type": "quantitative", "title": "Share", "format": ".1%" }
+          {
+            "field": "properties.STE_NAME16",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "returned",
+            "type": "quantitative",
+            "title": "Cats that made it home",
+            "format": ","
+          },
+          {
+            "field": "total_cats",
+            "type": "quantitative",
+            "title": "Total cats",
+            "format": ","
+          },
+          {
+            "field": "share_home",
+            "type": "quantitative",
+            "title": "Share",
+            "format": ".1%"
+          }
         ]
       }
     },
@@ -69,9 +147,15 @@
         {
           "lookup": "properties.STE_NAME16",
           "from": {
-            "data": { "url": "data_sources/state_label_positions.csv" },
+            "data": {
+              "url": "data_sources/state_label_positions.csv"
+            },
             "key": "state",
-            "fields": ["latitude", "longitude"]
+            "fields": [
+              "latitude",
+              "longitude",
+              "placement"
+            ]
           }
         },
         {
@@ -81,29 +165,127 @@
               "url": "data_sources/cats_home_by_state.csv",
               "format": {
                 "type": "csv",
-                "parse": { "returned": "number", "total_cats": "number" }
+                "parse": {
+                  "returned": "number",
+                  "total_cats": "number"
+                }
               }
             },
             "key": "state",
-            "fields": ["state_code", "returned", "total_cats"]
+            "fields": [
+              "state_code",
+              "returned",
+              "total_cats"
+            ]
           }
         },
         {
           "calculate": "datum.state_code + ' ' + format(datum.returned / datum.total_cats, '.0%')",
           "as": "map_label"
+        },
+        {
+          "filter": "datum.placement == 'inside'"
         }
       ],
-      "mark": { "type": "text", "fontSize": 12, "fontWeight": "bold", "color": "#3b2620" },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#3b2620"
+      },
       "encoding": {
-        "longitude": { "field": "longitude", "type": "quantitative" },
-        "latitude": { "field": "latitude", "type": "quantitative" },
-        "text": { "field": "map_label", "type": "nominal" }
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "map_label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "lookup": "properties.STE_NAME16",
+          "from": {
+            "data": {
+              "url": "data_sources/state_label_positions.csv"
+            },
+            "key": "state",
+            "fields": [
+              "latitude",
+              "longitude",
+              "placement"
+            ]
+          }
+        },
+        {
+          "lookup": "properties.STE_NAME16",
+          "from": {
+            "data": {
+              "url": "data_sources/cats_home_by_state.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "returned": "number",
+                  "total_cats": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "state_code",
+              "returned",
+              "total_cats"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.state_code + ' ' + format(datum.returned / datum.total_cats, '.0%')",
+          "as": "map_label"
+        },
+        {
+          "filter": "datum.placement == 'outside'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#3b2620",
+        "align": "left",
+        "dx": 4
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "map_label",
+          "type": "nominal"
+        }
       }
     }
   ],
   "config": {
-    "view": { "stroke": null },
+    "view": {
+      "stroke": null
+    },
     "font": "Nunito",
-    "title": { "font": "Fredoka", "fontSize": 18, "subtitleColor": "#7a5a50" }
+    "title": {
+      "font": "Fredoka",
+      "fontSize": 18,
+      "subtitleColor": "#7a5a50"
+    }
   }
 }
