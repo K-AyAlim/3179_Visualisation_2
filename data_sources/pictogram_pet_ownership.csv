@@ -1,5 +1,5 @@
-pet_type,household_penetration
-Dogs,49.3
-Cats,33.6
-Fish,11.5
-Birds,9.5
+pet_type,household_penetration,label
+Dogs,49.3,49.3%
+Cats,33.6,33.6%
+Fish,11.5,11.5%
+Birds,9.5,9.5%

@@ -46,6 +46,14 @@ In this section we will breakdown the breed frequencies in the places that publi
 </p>
 
 
+      <div class="story-row reverse">
+        <div class="text-card">
+          <h3>People have favourites</h3>
+          <p>Among pedigreed cats, preferences differ noticeably between regions. Ragdolls account for 37% of Townsville’s purebred cats, Burmese for 32% of those in Surf Coast, and British Shorthairs for 17% of those in Golden Plains.</p>
+        </div>
+        <div id="vis-heatmap" class="chart-card"></div>
+      </div>
+
       <div class="story-row">
         <div class="text-card">
           <h3>But out of 100 cats, more than 4 in 5 have no pedigree!</h3>
@@ -59,7 +67,7 @@ In this section we will breakdown the breed frequencies in the places that publi
           <h3>Breed doesn’t matter, care does</h3>
           <p class="placeholder">Cats with no recorded breed are far less likely to be desexed. But why should we care ? (Segway into next section, I just can't think of how to word it rn)</p>
         </div>
-        <div id="vis-mosaic" class="chart-card pending">Mosaic: breed group × desexed</div>
+        <div id="vis-mosaic" class="chart-card"></div>
       </div>
     </section>
 
@@ -162,7 +170,9 @@ In this section we will breakdown the breed frequencies in the places that publi
 
   <script type="text/javascript">
     vegaEmbed('#vis-pictogram', "js_charts/pictogram.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-heatmap', "js_charts/heatmap.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-waffle', "js_charts/wafflechart.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-mosaic', "js_charts/mosaic.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-adopt-barchart', "js_charts/adoption_barchart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-wild-rad-barchart', "js_charts/wildlife_radial_barchart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-div-barchart', "js_charts/div_bar.vg.json", { "actions": false }).catch(console.error);

@@ -39,7 +39,7 @@
           {
             "field": "killed",
             "type": "quantitative",
-            "title": "Killed per cat pet year",
+            "title": "Killed per pet cat per year",
             "format": ","
           }
         ]
