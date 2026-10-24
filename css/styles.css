@@ -109,6 +109,10 @@ h3 {
   border-radius: 12px;
 }
 
+.wide-chart {
+  flex: 3;
+}
+
 .story-row .chart-card {
   display: flex;
   flex-direction: column;
