@@ -96,6 +96,7 @@ In this section we will breakdown the breed frequencies in the places that publi
           <h3>...and some never make it back</h3>
           <p>In 2023–24, the RSPCA euthanised 5,148 cats (the RSPCA is only one shelter provider, there are hundreds of others that also euthanise so the real number is certainly larger). For this organisation medical reasons accounted for 41% of these cases and behavioural reasons for a further 35%. Many of these outcomes could have been prevented had the cats been microchipped, registered and desexed, as desexed cats are less likely to roam, fight or breed, and identified cats can be returned home before their condition worsens.</p>
         </div>
+        <div id="vis-euth-lollipop" class="chart-card"></div>
       </div>
 
       <div class="story-row reverse">
@@ -174,6 +175,7 @@ In this section we will breakdown the breed frequencies in the places that publi
     vegaEmbed('#vis-waffle', "js_charts/wafflechart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-mosaic', "js_charts/mosaic.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-adopt-barchart', "js_charts/adoption_barchart.vg.json", { "actions": false }).catch(console.error);
+    vegaEmbed('#vis-euth-lollipop', "js_charts/euthanasia_lollipop.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-wild-rad-barchart', "js_charts/wildlife_radial_barchart.vg.json", { "actions": false }).catch(console.error);
     vegaEmbed('#vis-div-barchart', "js_charts/div_bar.vg.json", { "actions": false }).catch(console.error);
   </script>
