@@ -82,11 +82,7 @@
       },
       "encoding": {
         "x": { "field": "index", "type": "quantitative" },
-        "text": {
-          "field": "household_penetration",
-          "type": "quantitative",
-          "format": ".1f"
-        },
+        "text": { "field": "label", "type": "nominal" },
         "color": {
           "condition": {
             "test": "datum.pet_type == 'Cats'",
