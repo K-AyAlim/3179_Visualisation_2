@@ -6,7 +6,7 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 320,
+  "height": 440,
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
   "data": { "url": "data_sources/euthanasia_reasons.csv" },
@@ -21,7 +21,7 @@
       "type": "quantitative",
       "title": "Cats euthanised",
       "scale": { "domain": [0, 2500] },
-      "axis": { "format": ",", "tickCount": 5, "titleFont": "Fredoka", "titleFontSize": 13, "titlePadding": 12 }
+      "axis": { "format": ",.0f", "tickCount": 5, "titleFont": "Fredoka", "titleFontSize": 13, "titlePadding": 12 }
     }
   },
   "layer": [
