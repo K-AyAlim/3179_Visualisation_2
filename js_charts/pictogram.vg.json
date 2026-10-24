@@ -51,16 +51,7 @@
           "axis": null,
           "scale": { "domain": [0, 22] }
         },
-        "color": {
-          "condition": [
-            {
-              "test": "datum.index < datum.houses && datum.pet_type == 'Cats'",
-              "value": "#b8476e"
-            },
-            { "test": "datum.index < datum.houses", "value": "#5a3a2e" }
-          ],
-          "value": "#ead2d4"
-        },
+        "color": { "value": "#b8476e" },
         "tooltip": [
           { "field": "pet_type", "type": "nominal", "title": "Pet" },
           {
@@ -83,13 +74,7 @@
       "encoding": {
         "x": { "field": "index", "type": "quantitative" },
         "text": { "field": "label", "type": "nominal" },
-        "color": {
-          "condition": {
-            "test": "datum.pet_type == 'Cats'",
-            "value": "#b8476e"
-          },
-          "value": "#7a5a50"
-        }
+        "color": { "value": "#3b2620" }
       }
     }
   ],
