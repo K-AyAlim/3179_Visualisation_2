@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Cats have been recorded right across Australia",
-    "subtitle": "Each dot is one recorded cat sighting (Atlas of Living Australia). Dots show where cats were reported, not exact population density.",
+    "text": "Feral cats have been recorded right across Australia",
+    "subtitle": "Each dot is one recorded feral cat sighting (Atlas of Living Australia).",
     "anchor": "start"
   },
   "width": "container",
