@@ -162,6 +162,17 @@ footer {
   color: var(--muted);
 }
 
+.apa {
+  list-style: none;
+  padding-left: 0;
+}
+
+.apa li {
+  padding-left: 2em;
+  text-indent: -2em;
+  margin-bottom: 8px;
+}
+
 footer a {
   color: var(--accent);
 }
