@@ -113,6 +113,10 @@ h3 {
   flex: 3;
 }
 
+.narrow-chart {
+  flex: 0.75;
+}
+
 .story-row .chart-card {
   display: flex;
   flex-direction: column;

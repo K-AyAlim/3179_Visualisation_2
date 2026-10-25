@@ -18,7 +18,6 @@
       "sort": ["Kittens", "Adolescent & adult cats"],
       "axis": {
         "labelAngle": 0,
-        "domain": false,
         "ticks": false,
         "labelFontSize": 14,
         "labelPadding": 12,
@@ -29,8 +28,15 @@
     "y": {
       "field": "percent_over_60_days",
       "type": "quantitative",
-      "axis": null,
-      "scale": { "domain": [0, 24] }
+      "title": "Cats waiting over 60 days",
+      "scale": { "domain": [0, 25] },
+      "axis": {
+        "tickCount": 5,
+        "labelExpr": "datum.label + '%'",
+        "titleFont": "Fredoka",
+        "titleFontSize": 13,
+        "titlePadding": 12
+      }
     }
   },
   "layer": [
