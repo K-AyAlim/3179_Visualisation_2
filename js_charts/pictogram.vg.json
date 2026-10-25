@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Pets per Household",
-    "subtitle": ["Each house = 5% of Australian households (rounded).",
+    "subtitle": ["Each house = 2.5% of Australian households (rounded).",
      "Note one house can have more than one pet, so the percentages do not add up to 100."],
     "anchor": "start"
   },
@@ -14,8 +14,8 @@
   "data": { "url": "data_sources/pictogram_pet_ownership.csv" },
 
   "transform": [
-    { "calculate": "round(datum.household_penetration/5)", "as": "houses" },
-    { "calculate": "sequence(0,20)", "as": "index" },
+    { "calculate": "round(datum.household_penetration/2.5)", "as": "houses" },
+    { "calculate": "sequence(0,25)", "as": "index" },
     { "flatten": ["index"] }
   ],
 
