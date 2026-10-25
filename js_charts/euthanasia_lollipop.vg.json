@@ -13,7 +13,7 @@
   "transform": [
     { "joinaggregate": [{ "op": "sum", "field": "Number_Euthanised", "as": "total" }] },
     { "calculate": "datum.Number_Euthanised / datum.total", "as": "share" },
-    { "calculate": "format(datum.Number_Euthanised, ',') + ' · ' + format(datum.share, '.0%')", "as": "label" }
+    { "calculate": "format(datum.Number_Euthanised, ',')", "as": "label" }
   ],
   "encoding": {
     "y": {

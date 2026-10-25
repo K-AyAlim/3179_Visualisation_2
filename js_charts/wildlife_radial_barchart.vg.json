@@ -14,7 +14,7 @@
   { "calculate": "datum.ring_inner + 0.75", "as": "ring_outer" },
   { "calculate": "datum.ring_inner + 0.375", "as": "ring_middle" },
   { "calculate": "0", "as": "start" },
-  { "calculate": "datum.animal_type + ' · ' + datum.killed", "as": "wedge_label" }
+  { "calculate": "datum.animal_type + ': ' + datum.killed", "as": "wedge_label" }
 ],
   "encoding": {
 "theta": { "field": "start", "type": "quantitative", "scale": { "domain": [0, 52] } },
