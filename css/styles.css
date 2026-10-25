@@ -75,6 +75,14 @@ h3 {
   margin-right: 12px;
 }
 
+.subsection-title {
+  font-size: 24px;
+  color: var(--accent);
+  border-bottom: 1px solid var(--soft);
+  padding-bottom: 6px;
+  margin: 30px 0 20px 0;
+}
+
 .story-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
