@@ -7,32 +7,76 @@
   },
   "width": "container",
   "height": "container",
-  "autosize": { "type": "fit", "contains": "padding" },
-  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
-  "data": { "url": "data_sources/euthanasia_reasons.csv" },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "padding": {
+    "top": 20,
+    "bottom": 20,
+    "left": 24,
+    "right": 24
+  },
+  "data": {
+    "url": "data_sources/euthanasia_reasons.csv"
+  },
   "transform": [
-    { "joinaggregate": [{ "op": "sum", "field": "Number_Euthanised", "as": "total" }] },
-    { "calculate": "datum.Number_Euthanised / datum.total", "as": "share" },
-    { "calculate": "format(datum.Number_Euthanised, ',')", "as": "label" }
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "Number_Euthanised",
+          "as": "total"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.Number_Euthanised / datum.total",
+      "as": "share"
+    },
+    {
+      "calculate": "format(datum.Number_Euthanised, ',')",
+      "as": "label"
+    }
   ],
   "encoding": {
     "y": {
       "field": "Number_Euthanised",
       "type": "quantitative",
       "title": "Cats euthanised",
-      "scale": { "domain": [0, 2500] },
-      "axis": { "format": ",.0f", "tickCount": 5, "titleFont": "Fredoka", "titleFontSize": 13, "titlePadding": 12 }
+      "scale": {
+        "domain": [
+          0,
+          2500
+        ]
+      },
+      "axis": {
+        "format": ",.0f",
+        "tickCount": 5,
+        "titleFont": "Fredoka",
+        "titleFontSize": 13,
+        "titlePadding": 12
+      }
     }
   },
   "layer": [
     {
-      "mark": { "type": "rule", "strokeWidth": 3, "color": "#b8476e" },
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3,
+        "color": "#b8476e"
+      },
       "encoding": {
         "x": {
           "field": "Reason",
           "type": "nominal",
           "title": "Reason for euthanasia",
-          "sort": ["Medical", "Behavioural", "Infectious", "Other"],
+          "sort": [
+            "Medical",
+            "Behavioural",
+            "Infectious",
+            "Other"
+          ],
           "axis": {
             "labelAngle": 0,
             "labelFontSize": 14,
@@ -44,50 +88,87 @@
             "titlePadding": 12
           }
         },
-        "y2": { "datum": 0 }
+        "y2": {
+          "datum": 0
+        }
       }
     },
     {
-      "mark": { "type": "point", "filled": true, "size": 300, "opacity": 1, "color": "#b8476e" },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 300,
+        "opacity": 1,
+        "color": "#b8476e"
+      },
       "encoding": {
-        "x": { "field": "Reason", "type": "nominal", "sort": ["Medical", "Behavioural", "Infectious", "Other"] },
+        "x": {
+          "field": "Reason",
+          "type": "nominal",
+          "sort": [
+            "Medical",
+            "Behavioural",
+            "Infectious",
+            "Other"
+          ]
+        },
         "tooltip": [
-          { "field": "Reason", "type": "nominal", "title": "Reason" },
-          { "field": "Number_Euthanised", "type": "quantitative", "title": "Cats euthanised", "format": "," },
-          { "field": "share", "type": "quantitative", "title": "Share of all cats euthanised", "format": ".1%" }
+          {
+            "field": "Reason",
+            "type": "nominal",
+            "title": "Reason"
+          },
+          {
+            "field": "Number_Euthanised",
+            "type": "quantitative",
+            "title": "Cats euthanised",
+            "format": ","
+          },
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share of all cats euthanised",
+            "format": ".1%"
+          }
         ]
       }
     },
     {
-      "mark": { "type": "text", "baseline": "bottom", "dy": -14, "fontSize": 13, "fontWeight": "bold", "color": "#3b2620" },
+      "mark": {
+        "type": "text",
+        "baseline": "bottom",
+        "dy": -14,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#3b2620"
+      },
       "encoding": {
-        "x": { "field": "Reason", "type": "nominal", "sort": ["Medical", "Behavioural", "Infectious", "Other"] },
-        "text": { "field": "label", "type": "nominal" }
-      }
-    },
-    {
-      "transform": [{ "aggregate": [{ "op": "mean", "field": "Number_Euthanised", "as": "average" }] }],
-      "mark": { "type": "rule", "strokeDash": [4, 4], "strokeWidth": 1.5, "color": "#7a5a50" },
-      "encoding": {
-        "y": { "field": "average", "type": "quantitative" }
-      }
-    },
-    {
-      "transform": [
-        { "aggregate": [{ "op": "mean", "field": "Number_Euthanised", "as": "average" }] },
-        { "calculate": "'Average: ' + format(datum.average, ',')", "as": "average_label" }
-      ],
-      "mark": { "type": "text", "align": "right", "baseline": "bottom", "dy": -4, "fontSize": 12, "color": "#7a5a50" },
-      "encoding": {
-        "y": { "field": "average", "type": "quantitative" },
-        "x": { "value": "width" },
-        "text": { "field": "average_label", "type": "nominal" }
+        "x": {
+          "field": "Reason",
+          "type": "nominal",
+          "sort": [
+            "Medical",
+            "Behavioural",
+            "Infectious",
+            "Other"
+          ]
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
       }
     }
   ],
   "config": {
-    "view": { "stroke": null },
+    "view": {
+      "stroke": null
+    },
     "font": "Nunito",
-    "title": { "font": "Fredoka", "fontSize": 18, "subtitleColor": "#7a5a50" }
+    "title": {
+      "font": "Fredoka",
+      "fontSize": 18,
+      "subtitleColor": "#7a5a50"
+    }
   }
 }
