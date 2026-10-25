@@ -2,7 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Comparison of Adoption Wait Times Based on Age",
-    "subtitle": "Share of Cats that Took More than 60 Days to be Adopted",
     "anchor": "start"
   },
   "width": "container",

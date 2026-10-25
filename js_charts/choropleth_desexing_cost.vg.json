@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Desexing a cat costs around $185–$245",
-    "subtitle": "Average cost to desex a cat in 2026, by state",
+    "text": "Average cost to desex a cat in 2026",
+    "subtitle": "by state",
     "anchor": "start"
   },
   "width": "container",

@@ -1,7 +1,11 @@
-breed_group,status,cats
-Mixed,Desexed,4375
-Mixed,Not desexed,502
-Crossbred,Desexed,242
-Crossbred,Not desexed,27
-Purebred,Desexed,634
-Purebred,Not desexed,91
+breed_group,age_band,percent
+Mixed breed,By 4 months,25.0
+Mixed breed,4 to 6 months,37.4
+Mixed breed,6 to 12 months,24.4
+Mixed breed,1 to 2 years,8.2
+Mixed breed,Over 2 years,5.0
+Purebred,By 4 months,15.3
+Purebred,4 to 6 months,48.8
+Purebred,6 to 12 months,25.1
+Purebred,1 to 2 years,6.4
+Purebred,Over 2 years,4.4

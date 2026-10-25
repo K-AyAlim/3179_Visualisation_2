@@ -1,8 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Feral cats kill over 2 billion animals a year",
-    "subtitle": "Mammals, reptiles and birds killed each year by feral cats in Australia",
+    "text": "Total Animals Killed by Feral Cats in Australia Each Year",
     "anchor": "start"
   },
   "width": 400,

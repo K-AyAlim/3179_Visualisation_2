@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Pedigree or not, desexing rates are similar",
-    "subtitle": ["Share of registered cats in each breed group that are desexed (Townsville and Golden Plains)", "Mixed includes cats with no recorded breed"],
+    "text": "Fewer purebreds are desexed by 4 months",
+    "subtitle": ["Age at desexing for desexed cats born 2010–2017 (VetCompass Australia)", "Overall desexed: mixed breed 84.8%, purebred 83.4%"],
     "anchor": "start"
   },
   "width": "container",
@@ -11,19 +11,15 @@
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
   "data": { "url": "data_sources/mosaic_desexing.csv" },
   "transform": [
-    {
-      "joinaggregate": [{ "op": "sum", "field": "cats", "as": "group_total" }],
-      "groupby": ["breed_group"]
-    },
-    { "calculate": "datum.cats / datum.group_total", "as": "share" },
-    { "calculate": "indexof(['Not desexed', 'Desexed'], datum.status)", "as": "order" }
+    { "calculate": "indexof(['By 4 months', '4 to 6 months', '6 to 12 months', '1 to 2 years', 'Over 2 years'], datum.age_band)", "as": "order" },
+    { "calculate": "datum.percent / 100", "as": "share" }
   ],
   "encoding": {
     "x": {
       "field": "breed_group",
       "type": "nominal",
       "title": null,
-      "sort": ["Mixed", "Crossbred", "Purebred"],
+      "sort": ["Mixed breed", "Purebred"],
       "axis": {
         "labelAngle": 0,
         "domain": false,
@@ -41,28 +37,26 @@
       "mark": { "type": "bar", "stroke": "#ffffff", "strokeWidth": 2 },
       "encoding": {
         "y": {
-          "field": "cats",
+          "field": "percent",
           "type": "quantitative",
           "stack": "normalize",
           "title": null,
           "axis": { "format": ".0%", "domain": false, "ticks": false, "tickCount": 5 }
         },
         "color": {
-          "field": "status",
-          "type": "nominal",
-          "title": null,
+          "field": "age_band",
+          "type": "ordinal",
+          "title": "Age at desexing",
           "scale": {
-            "domain": ["Not desexed", "Desexed"],
-            "range": ["#b8476e", "#ead2d4"]
+            "domain": ["By 4 months", "4 to 6 months", "6 to 12 months", "1 to 2 years", "Over 2 years"],
+            "range": ["#7d2a4a", "#b8476e", "#d387a0", "#eec8d3", "#d8ccc6"]
           },
-          "legend": { "orient": "bottom", "labelFontSize": 13 }
+          "legend": { "orient": "right", "labelFontSize": 13, "symbolType": "square", "symbolSize": 200 }
         },
         "tooltip": [
           { "field": "breed_group", "type": "nominal", "title": "Breed group" },
-          { "field": "status", "type": "nominal", "title": "Status" },
-          { "field": "cats", "type": "quantitative", "title": "Cats", "format": "," },
-          { "field": "share", "type": "quantitative", "title": "Share of group", "format": ".1%" },
-          { "field": "group_total", "type": "quantitative", "title": "Cats in group", "format": "," }
+          { "field": "age_band", "type": "nominal", "title": "Age at desexing" },
+          { "field": "share", "type": "quantitative", "title": "Share of desexed cats", "format": ".1%" }
         ]
       }
     },
@@ -70,15 +64,15 @@
       "mark": { "type": "text", "fontSize": 13, "fontWeight": "bold" },
       "encoding": {
         "y": {
-          "field": "cats",
+          "field": "percent",
           "type": "quantitative",
           "stack": "normalize",
           "bandPosition": 0.5
         },
         "text": { "field": "share", "type": "quantitative", "format": ".0%" },
-        "detail": { "field": "status" },
+        "detail": { "field": "age_band" },
         "color": {
-          "condition": { "test": "datum.status == 'Not desexed'", "value": "#ffffff" },
+          "condition": { "test": "datum.order <= 1", "value": "#ffffff" },
           "value": "#3b2620"
         }
       }

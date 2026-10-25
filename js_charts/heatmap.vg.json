@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Every town has a different favourite",
-    "subtitle": "Share of each council's purebred cats, by breed, grouped into classes",
+    "text": "Share of each council's purebred cats",
+    "subtitle": "by breed, grouped into classes",
     "anchor": "start"
   },
   "width": "container",

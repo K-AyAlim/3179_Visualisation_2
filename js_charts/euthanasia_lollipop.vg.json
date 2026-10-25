@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Most cats are euthanised for medical or behavioural reasons",
-    "subtitle": "Cats euthanised by the RSPCA in 2023–24, by reason (5,148 in total)",
+    "text": "Cats euthanised by the RSPCA in 2023–24",
+    "subtitle":"by reason (5,148 in total)",
     "anchor": "start"
   },
   "width": "container",
