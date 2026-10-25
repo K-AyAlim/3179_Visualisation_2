@@ -125,6 +125,38 @@ h3 {
   align-items: center;
 }
 
+.breed-note {
+  margin-bottom: 40px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0;
+}
+
+.stat-label {
+  margin: 4px 0 0 0;
+  color: var(--muted);
+}
+
 .pending {
   display: flex;
   align-items: center;

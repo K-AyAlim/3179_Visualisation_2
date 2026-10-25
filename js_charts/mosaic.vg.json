@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Unknown-breed cats are rarely desexed",
-    "subtitle": "Share of registered cats in each breed group that are desexed (Townsville and Golden Plains)",
+    "text": "Pedigree or not, desexing rates are similar",
+    "subtitle": ["Share of registered cats in each breed group that are desexed (Townsville and Golden Plains)", "Mixed includes cats with no recorded breed"],
     "anchor": "start"
   },
   "width": "container",
@@ -23,7 +23,7 @@
       "field": "breed_group",
       "type": "nominal",
       "title": null,
-      "sort": ["Mixed", "Crossbred", "Purebred", "Unknown"],
+      "sort": ["Mixed", "Crossbred", "Purebred"],
       "axis": {
         "labelAngle": 0,
         "domain": false,
