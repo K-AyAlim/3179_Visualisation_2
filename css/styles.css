@@ -104,6 +104,7 @@ h3 {
 .chart-card {
   flex: 2;
   min-width: 0;
+  min-height: 360px;
   background-color: #ffffff;
   border: 2px solid var(--accent);
   border-radius: 12px;

@@ -5,8 +5,8 @@
     "subtitle": "Each square = 1% of 6,824 registered cats in Townsville, Golden Plains and Surf Coast",
     "anchor": "start"
   }, 
-  "width": 300,
-  "height": 300,
+  "width": 380,
+  "height": 380,
   "padding": {"top": 20, "bottom": 20, "left": 24, "right": 24},
   "data": {"url": "data_sources/waffle_breeds.csv"},
   "transform": [

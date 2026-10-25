@@ -6,7 +6,7 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 440,
+  "height": "container",
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
   "data": { "url": "data_sources/euthanasia_reasons.csv" },

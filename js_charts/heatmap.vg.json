@@ -6,7 +6,7 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 380,
+  "height": "container",
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
 
@@ -80,10 +80,6 @@
         "color": {
           "condition": { "test": "datum.share >= 0.2", "value": "#ffffff" },
           "value": "#3b2620"
-        },
-        "opacity": {
-          "condition": { "test": "datum.cats == 0", "value": 0 },
-          "value": 1
         }
       }
     }

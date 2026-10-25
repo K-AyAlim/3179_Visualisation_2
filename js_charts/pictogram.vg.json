@@ -7,7 +7,7 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 200,
+  "height": "container",
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
 

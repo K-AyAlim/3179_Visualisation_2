@@ -6,40 +6,36 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 280,
+  "height": "container",
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
   "data": { "url": "data_sources/adoption_barchart.csv" },
   "encoding": {
-    "y": {
+    "x": {
       "field": "cat_type",
       "type": "nominal",
       "title": null,
-      "sort": [
-        "Kittens",
-        "Adolescent & adult cats",
-        "No adoption restrictions",
-        "With adoption restrictions"
-      ],
+      "sort": ["Kittens", "Adolescent & adult cats"],
       "axis": {
+        "labelAngle": 0,
         "domain": false,
         "ticks": false,
         "labelFontSize": 14,
-        "labelPadding": 24,
+        "labelPadding": 12,
         "labelFont": "Fredoka",
         "labelFontWeight": 600
       }
     },
-    "x": {
+    "y": {
       "field": "percent_over_60_days",
       "type": "quantitative",
       "axis": null,
-      "scale": { "domain": [0, 40] }
+      "scale": { "domain": [0, 24] }
     }
   },
   "layer": [
     {
-      "mark": { "type": "bar", "cornerRadiusEnd": 4 },
+      "mark": { "type": "bar", "cornerRadiusEnd": 4, "width": { "band": 0.6 } },
       "encoding": {
         "color": {
           "condition": {
@@ -62,9 +58,9 @@
     {
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 8,
-        "fontSize": 13,
+        "baseline": "bottom",
+        "dy": -8,
+        "fontSize": 14,
         "fontWeight": "bold"
       },
       "encoding": {

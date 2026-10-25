@@ -6,7 +6,7 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 520,
+  "height": "container",
   "autosize": { "type": "fit", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
   "projection": { "type": "equalEarth", "rotate": [-134, 0, 0] },
