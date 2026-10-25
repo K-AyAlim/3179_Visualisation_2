@@ -76,17 +76,18 @@ h3 {
 }
 
 .story-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   margin-bottom: 40px;
 }
 
-.story-row.reverse {
-  flex-direction: row-reverse;
+.story-row.reverse .text-card {
+  order: 2;
 }
 
 .text-card {
-  flex: 1;
+  grid-column: span 1;
   background-color: #ffffff;
   border: 2px solid var(--soft);
   border-radius: 12px;
@@ -102,19 +103,19 @@ h3 {
 }
 
 .chart-card {
-  flex: 2;
+  grid-column: span 2;
   min-width: 0;
   background-color: #ffffff;
   border: 2px solid var(--accent);
   border-radius: 12px;
 }
 
-.wide-chart {
-  flex: 3;
+.story-row.small-chart .text-card {
+  grid-column: span 2;
 }
 
-.narrow-chart {
-  flex: 0.75;
+.story-row.small-chart .chart-card {
+  grid-column: span 1;
 }
 
 .story-row .chart-card {
