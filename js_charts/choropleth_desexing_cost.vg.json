@@ -203,7 +203,7 @@
         },
         "color": {
           "condition": {
-            "test": "datum.average_cost >= 240",
+            "test": "datum.average_cost >= 220",
             "value": "#ffffff"
           },
           "value": "#3b2620"

@@ -37,7 +37,7 @@
             "domain": ["Support", "Neither", "Oppose"],
             "range": ["#b8476e", "#d8ccc6", "#5a3a2e"]
           },
-          "legend": { "orient": "bottom" }
+          "legend": { "orient": "bottom", "labelFontSize": 15, "symbolType": "square", "symbolSize": 250 }
         }
       }
     },

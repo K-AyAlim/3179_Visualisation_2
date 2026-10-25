@@ -10,7 +10,7 @@
   "padding": {"top": 20, "bottom": 20, "left": 24, "right": 24},
   "data": {"url": "data_sources/waffle_breeds.csv"},
   "transform": [
-  {"calculate": "indexof(['Mixed', 'Crossbred', 'Purebred'], datum.Breed)", "as": "order"},
+  {"calculate": "indexof(['Mixed', 'Purebred', 'Crossbred'], datum.Breed)", "as": "order"},
   {"window": [{"op": "sum", "field": "Percentage", "as": "running_end"}], "sort": [{"field": "order"}]},
   {"calculate": "datum.running_end - datum.Percentage", "as": "running_start"},
   {"calculate": "sequence(0, 100)", "as": "index"},
@@ -28,8 +28,8 @@
       "type": "nominal",
       "title": null,
       "scale": {
-        "domain": ["Mixed", "Crossbred", "Purebred"],
-        "range": ["#b8476e", "#e3a1b6", "#5a3a2e"]
+        "domain": ["Mixed", "Purebred", "Crossbred"],
+        "range": ["#b8476e", "#5a3a2e", "#e3a1b6"]
       },
       "legend": {"orient": "right", "labelFontSize": 14, "symbolType": "square", "symbolSize": 200}
     },
