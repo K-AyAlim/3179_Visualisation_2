@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Fewer purebreds are desexed by 4 months",
-    "subtitle": ["Age at desexing for desexed cats born 2010–2017 (VetCompass Australia)", "Overall desexed: mixed breed 84.8%, purebred 83.4%"],
+    "text": "Desexing rates by breed type and age",
+    "subtitle": "by breed type and age",
     "anchor": "start"
   },
   "width": "container",

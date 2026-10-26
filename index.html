@@ -1,250 +1,593 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fur Real: Who Are Australia's Cats?</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fur Real: Who Are Australia's Cats?</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+  </head>
 
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-</head>
+  <body>
+    <main class="page">
+      <header>
+        <h1>Purr-sonalised Care</h1>
+        <p class="subtitle">
+          Does breed type affect essential cat care in Australia?
+        </p>
+        <p class="intro">
+          This visualisation explores whether purebred and mixed breed cats
+          differ when it comes to three essentials of responsible ownership:
+          microchipping, desexing and keeping cats indoors. Along the way, it
+          shows why every cat deserves this care, whatever its breed, to keep it
+          safe and to protect the wildlife around it.
+        </p>
+      </header>
 
-<body>
-  <main class="page">
+      <section id="section-1">
+        <h2><span class="section-number">1</span>The Feline Fame ฅ(•˕ •マ⟆</h2>
+        <p class="section-subtitle">
+          Before we start, how many Australians have a cat?
+        </p>
 
-    <header>
-      <h1>Purr-sonalised Care</h1>
-      <p class="subtitle">Does breed type affect essential cat care in Australia?</p>
-      <p class="intro">This visualisation explores whether purebred and mixed breed cats differ when it comes to three essentials of responsible ownership: microchipping, desexing and keeping cats indoors. Along the way, it shows why every cat deserves this care, whatever its breed, to keep it safe and to protect the wildlife around it.</p>
-    </header>
-
-    <section id="section-1">
-      <h2><span class="section-number">1</span>The Feline Fame  ฅ(•˕ •マ⟆</h2>
-      <p class="section-subtitle">Before we start, how many Australians have a cat?</p>
-
-      <div class="story-row">
-        <div class="text-card">
-          <h3>1 in 3 homes has a cat!</h3>
-          <p>The 2025 Pet Ownership Study revealed that cats are the second most popular pet in Australia, so much so that 33.6% of all households in the country have a purring pet.</p>
+        <div class="story-row">
+          <div class="text-card">
+            <h3>1 in 3 homes has a cat!</h3>
+            <p>
+              The 2025 Pet Ownership Study revealed that cats are the second
+              most popular pet in Australia, so much so that 33.6% of all
+              households in the country have a purring pet.
+            </p>
+          </div>
+          <div id="vis-pictogram" class="chart-card"></div>
         </div>
-        <div id="vis-pictogram" class="chart-card"></div>
-      </div>
-    </section>
+      </section>
 
-    <section id="section-2">
-      <h2><span class="section-number">2</span>Meeting the Mixed ≽^•˕• ྀི≼</h2>
-      <p class="section-subtitle">Which pedigree breeds are most common in councils that record them, and what breed types dominate across Australia?</p>
+      <section id="section-2">
+        <h2>
+          <span class="section-number">2</span>Meeting the Mixed ≽^•˕• ྀི≼
+        </h2>
+        <p class="section-subtitle">
+          Which pedigree breeds are most common in councils that record them,
+          and what breed types dominate across Australia?
+        </p>
 
-
-      <div class="story-row reverse">
-        <div class="text-card">
-          <h3>People have favourites!</h3>
-          <p>Among pedigreed cats, preferences differ noticeably between regions. Ragdolls account for 37% of Townsville’s purebred cats, Burmese for 32% of those in Surf Coast, and British Shorthairs for 17% of those in Golden Plains. </p>
+        <div class="story-row reverse">
+          <div class="text-card">
+            <h3>People have favourites!</h3>
+            <p>
+              Among pedigreed cats, preferences differ noticeably between
+              regions. Ragdolls account for 37% of Townsville’s purebred cats,
+              Burmese for 32% of those in Surf Coast, and British Shorthairs for
+              17% of those in Golden Plains.
+            </p>
+          </div>
+          <div id="vis-heatmap" class="chart-card"></div>
         </div>
-        <div id="vis-heatmap" class="chart-card"></div>
-      </div>
 
-      <div class="story-row">
-        <div class="text-card">
-          <h3>But out of 100 cats, more than 4 in 5 have no pedigree!</h3>
-          <p>Out of Australia's 5.4 million pet cat population, purebred cats only make 29% of the total, with the other 71% being mixed!</p>
+        <div class="story-row">
+          <div class="text-card">
+            <h3>Out of 100 cats, 3 in 4 have no pedigree!</h3>
+            <p>
+              Out of Australia's 5.4 million pet cat population, purebred cats
+              only make 29% of the total, with the other 71% being mixed!
+            </p>
+          </div>
+          <div id="vis-waffle" class="chart-card"></div>
         </div>
-        <div id="vis-waffle" class="chart-card"></div>
-      </div>
-    </section>
+      </section>
 
-    <section id="section-3">
-      <h2><span class="section-number">3</span>Essential Care: Microchipping ≽^- ˕ -^≼</h2>
-      <p class="section-subtitle"> Microchipping is the act of placing a miniscule chip, containing important information, under the cat's skin. Do owners of purebred cats microchip their pets more often than owners of mixed breed cats? And why does it matter that every cat is microchipped, regardless of breed?
-</p>
-      <h3 class="subsection-title">Purebred vs Mixed</h3>
+      <section id="section-3">
+        <h2>
+          <span class="section-number">3</span>Essential Care: Microchipping ≽^-
+          ˕ -^≼
+        </h2>
+        <p class="section-subtitle">
+          Microchipping is the act of placing a miniscule chip, containing
+          important information, under the cat's skin. Do owners of purebred
+          cats microchip their pets more often than owners of mixed breed cats?
+          And why does it matter that every cat is microchipped, regardless of
+          breed?
+        </p>
+        <h3 class="subsection-title">Purebred vs Mixed</h3>
 
-      <div class="text-card breed-note">
-        <h3>Purebred vs Mixed: microchipping</h3>
-        <p class="placeholder">Talk about how microchipping rates compare between purebred and mixed-breed cats, and why every cat needs a microchip regardless of breed.</p>
-      </div>
-
-      <h3 class="subsection-title">Why It Still Matters!</h3>
-
-      <div class="story-row">
-        <div class="text-card">
-          <h3>Cats get lost and end up in shelters</h3>
-          <p> Thankfully, most cats that enter the Royal Society for the Prevention of Cruelty to Animals (RSPCA) shelters are either rehomed or reunited with their owners. However, a cat can only be returned if it can be identified, which is why the RSPCA states that microchips are the best way for a lost pet to be returned home.</p>
+        <div class="text-card breed-note">
+          <h3>Purebred vs Mixed: microchipping</h3>
+          <p class="placeholder">
+            Talk about how microchipping rates compare between purebred and
+            mixed-breed cats, and why every cat needs a microchip regardless of
+            breed.
+          </p>
         </div>
-        <div id="vis-map-rehomed" class="chart-card"></div>
-      </div>
 
-      <div class="story-row reverse">
-        <div class="text-card">
-          <h3>But older cats wait longer...</h3>
-          <p>Kittens are adopted quickly, whereas adolescent and adult cats are almost twice as likely to wait more than 60 days for a new home (20% compared with 11%). This delay carries real consequences. Pounds are only required to hold a lost cat for 3 to 14 days depending on the state.</p>
-          <p>Although most shelters strive to be no kill, every additional cat adds pressure, and for an unidentified cat a single day can be the difference between life and death.</p>
+        <h3 class="subsection-title">Why It Still Matters!</h3>
+
+        <div class="story-row">
+          <div class="text-card">
+            <h3>Cats get lost and end up in shelters</h3>
+            <p>
+              Thankfully, most cats that enter the Royal Society for the
+              Prevention of Cruelty to Animals (RSPCA) shelters are either
+              rehomed or reunited with their owners. However, a cat can only be
+              returned if it can be identified, which is why the RSPCA states
+              that microchips are the best way for a lost pet to be returned
+              home.
+            </p>
+          </div>
+          <div id="vis-map-rehomed" class="chart-card"></div>
         </div>
-        <div id="vis-adopt-barchart" class="chart-card"></div>
-      </div>
 
-      <div class="story-row">
-        <div class="text-card">
-          <h3>...but some never make it back</h3>
-          <p>In 2023–24, the RSPCA euthanised 5,148 cats. For this organisation medical reasons accounted for 41% of these cases and behavioural reasons for a further 35%.</p>
-          <p>Many of these outcomes could have been prevented had the cats been microchipped asidentified cats can be returned home before their condition worsens.</p>
-          <p>Not to mention the RSPCA is only one shelter provider, in general PetRescue reports that this number is estimated to be as large as 50,000 euthanasations. </p>
+        <div class="story-row reverse">
+          <div class="text-card">
+            <h3>But older cats wait longer...</h3>
+            <p>
+              Kittens are adopted quickly, whereas adolescent and adult cats are
+              almost twice as likely to wait more than 60 days for a new home
+              (20% compared with 11%). This delay carries real consequences.
+              Pounds are only required to hold a lost cat for 3 to 14 days
+              depending on the state.
+            </p>
+            <p>
+              Although most shelters strive to be no kill, every additional cat
+              adds pressure, and for an unidentified cat a single day can be the
+              difference between life and death.
+            </p>
+          </div>
+          <div id="vis-adopt-barchart" class="chart-card"></div>
         </div>
-        <div id="vis-euth-lollipop" class="chart-card"></div>
-      </div>
 
-    </section>
-
-    <section id="section-4">
-      <h2><span class="section-number">4</span>Essential Care: Desexing</h2>
-      <p class="section-subtitle"> Desexing is the act of spaying or neutering a cat in order to surgically steralise them, preventing unwanted litters and certain health issues.</p>
-
-      <h3 class="subsection-title">Purebred vs mixed</h3>
-
-      <div class="story-row reverse">
-        <div class="text-card">
-          <h3>Pedigree or not, desexing matters</h3>
-          <p class="placeholder">Talk about desexing rates for purebred vs mixed-breed cats (mixed breed 84.8% desexed, purebred 83.4%; by 4 months of age, 25% of desexed mixed-breed cats vs 15% of purebreds), and why every cat should be desexed early regardless of breed.</p>
+        <div class="story-row">
+          <div class="text-card">
+            <h3>...but some never make it back</h3>
+            <p>
+              In 2023–24, the RSPCA euthanised 5,148 cats. For this organisation
+              medical reasons accounted for 41% of these cases and behavioural
+              reasons for a further 35%.
+            </p>
+            <p>
+              Many of these outcomes could have been prevented had the cats been
+              microchipped asidentified cats can be returned home before their
+              condition worsens.
+            </p>
+            <p>
+              Not to mention the RSPCA is only one shelter provider, in general
+              PetRescue reports that this number is estimated to be as large as
+              50,000 euthanasations.
+            </p>
+          </div>
+          <div id="vis-euth-lollipop" class="chart-card"></div>
         </div>
-        <div id="vis-mosaic" class="chart-card"></div>
-      </div>
+      </section>
 
-      <h3 class="subsection-title">Why it matters</h3>
+      <section id="section-4">
+        <h2><span class="section-number">4</span>Essential Care: Desexing</h2>
+        <p class="section-subtitle">
+          Desexing is the act of spaying or neutering a cat in order to
+          surgically steralise them, preventing unwanted litters and certain
+          health issues.
+        </p>
 
-                                     <div class="story-row">
-        <div class="text-card">
-          <h3>Desexing on a Budget</h3>
-          <p>Desexing a cat costs an average of between $185 in Tasmania and $245 in New South Wales. That is a one-off cost, far less than raising an unplanned litter of kittens, and many councils and the National Desexing Network offer discounted desexing for owners who need help.</p>
+        <h3 class="subsection-title">Purebred vs Mixed</h3>
+
+        <div class="story-row reverse">
+          <div class="text-card">
+            <h3>Hidden Differences</h3>
+            <p class="placeholder">
+              Talk about desexing rates for purebred vs mixed-breed cats (mixed
+              breed 84.8% desexed, purebred 83.4%; by 4 months of age, 25% of
+              desexed mixed-breed cats vs 15% of purebreds), and why every cat
+              should be desexed early regardless of breed.
+            </p>
+          </div>
+          <div id="vis-mosaic" class="chart-card"></div>
         </div>
-        <div id="vis-map-desex-cost" class="chart-card"></div>
-      </div>
-      
-      
-      <div class="story-row reverse">
-        <div class="text-card">
-          <h3>But desexing must occur because the consequences are severe! </h3>
-          <p class="placeholder">Even within one city, some suburbs have far more cats, and far fewer desexed, than others.</p>
+
+        <h3 class="subsection-title">Why It Still Matters</h3>
+
+        <div class="story-row reverse">
+          <div class="text-card">
+            <h3>
+              But desexing must occur because the consequences are severe!
+            </h3>
+            <p class="placeholder">
+              Even within one city, some suburbs have far more cats, and far
+              fewer desexed, than others.
+            </p>
+          </div>
+          <div id="vis-map-feral" class="chart-card"></div>
         </div>
-        <div id="vis-map-feral" class="chart-card"></div>
-      </div>
 
-            <div class="story-row">
-        <div class="text-card">
-          <h3>Feral cats kill over 2 billion animals a year</h3>
-          <p>Feral cats kill an estimated 2 billion reptiles, birds and mammals across Australia every year, most of them native species. Many feral cats are descended from pets that were abandoned or allowed to breed, which is why desexing is one of the most effective ways to stop the feral population from growing.</p>
+        <div class="story-row">
+          <div class="text-card">
+            <h3>Feral cats kill over 2 billion animals a year</h3>
+            <p>
+              Feral cats kill an estimated 2 billion reptiles, birds and mammals
+              across Australia every year, most of them native species. Many
+              feral cats are descended from pets that were abandoned or allowed
+              to breed, which is why desexing is one of the most effective ways
+              to stop the feral population from growing.
+            </p>
+          </div>
+          <div id="vis-feral-radial" class="chart-card"></div>
         </div>
-        <div id="vis-feral-radial" class="chart-card"></div>
-      </div>
-             </section>
-
-
-    <section id="section-5">
-      <h2><span class="section-number">5</span>Keeping Cats Indoors ฅ(•˕ •マ⟆</h2>
-      <p class="section-subtitle">Keeping cats indoors keeps everyone safe: you, your pet and Australia's native critters.</p>
-
-      <h3 class="subsection-title">Purebred vs mixed</h3>
-
-            <div class="stat-row">
-        <div class="stat-card">
-          <p class="stat-number">34%</p>
-          <p class="stat-label">of all pet cats are kept exclusively indoors</p>
+        <div class="story-row">
+          <div class="text-card">
+            <h3>Desexing on a Budget</h3>
+            <p>
+              Desexing a cat costs an average of between $185 in Tasmania and
+              $245 in New South Wales. That is a one-off cost, far less than
+              raising an unplanned litter of kittens, and many councils and the
+              National Desexing Network offer discounted desexing for owners who
+              need help.
+            </p>
+          </div>
+          <div id="vis-map-desex-cost" class="chart-card"></div>
         </div>
-        <div class="stat-card">
-          <p class="stat-number">54%</p>
-          <p class="stat-label">of purebred cats are kept indoors</p>
+      </section>
+
+      <section id="section-5">
+        <h2>
+          <span class="section-number">5</span>Keeping Cats Indoors ฅ(•˕ •マ⟆
+        </h2>
+        <p class="section-subtitle">
+          Keeping cats indoors keeps everyone safe: you, your pet and
+          Australia's native critters.
+        </p>
+
+        <h3 class="subsection-title">Purebred vs Mixed</h3>
+
+        <div class="stat-row">
+          <div class="stat-card">
+            <p class="stat-number">34%</p>
+            <p class="stat-label">
+              of all pet cats are kept exclusively indoors
+            </p>
+          </div>
+          <div class="stat-card">
+            <p class="stat-number">54%</p>
+            <p class="stat-label">of purebred cats are kept indoors</p>
+          </div>
+          <div class="text-card">
+            <h3>Purebred vs mixed: keeping cats indoors</h3>
+            <p class="placeholder">
+              Talk about why purebred cats are more often kept indoors, and why
+              it matters that every cat is kept indoors regardless of breed.
+            </p>
+          </div>
         </div>
-        <div class="text-card">
-          <h3>Purebred vs mixed: keeping cats indoors</h3>
-          <p class="placeholder">Talk about why purebred cats are more often kept indoors, and why it matters that every cat is kept indoors regardless of breed.</p>
+
+        <h3 class="subsection-title">Why It Still Matters</h3>
+
+        <div class="story-row">
+          <div class="text-card">
+            <h3>Ecosystem Annihilators</h3>
+            <p>
+              Regardless of breed type, on average, each roaming pet cat kills 110 native animals a year:
+              40 reptiles, 38 birds and 32 mammals. Of Australia’s 3.8 million
+              pet cats, 2.7 million (71%) are allowed to roam, and together they
+              kill an estimated 241 million native animals every year, with
+              devastating effects on local ecosystems. Keeping cats contained
+              protects wildlife as much as it protects the cats themselves.
+            </p>
+          </div>
+          <div id="vis-wild-rad-barchart" class="chart-card"></div>
         </div>
-      </div>
 
-      <h3 class="subsection-title">Why it matters</h3>
-
-      <div class="story-row ">
-        <div class="text-card">
-          <h3>Ecosystem Annihilators</h3>
-          <p>On average, each roaming pet cat kills 110 native animals a year: 40 reptiles, 38 birds and 32 mammals. Of Australia’s 3.8 million pet cats, 2.7 million (71%) are allowed to roam, and together they kill an estimated 241 million native animals every year, with devastating effects on local ecosystems. Keeping cats contained protects wildlife as much as it protects the cats themselves.</p>
+        <div class="story-row reverse">
+          <div class="text-card">
+            <h3>Don't worry, you’re not alone</h3>
+            <p>
+              Containing a cat is a widely supported choice. In a 2024 survey of
+              South Australians, 72% supported keeping cats contained, while
+              only 10% opposed it.
+            </p>
+          </div>
+          <div id="vis-div-barchart" class="chart-card"></div>
         </div>
-        <div id="vis-wild-rad-barchart" class="chart-card"></div>
-      </div>
 
-
-      <div class="story-row reverse">
-        <div class="text-card">
-          <h3> Don't worry, you’re not alone</h3>
-          <p>Containing a cat is a widely supported choice. In a 2024 survey of South Australians, 72% supported keeping cats contained, while only 10% opposed it.</p>
+        <div class="call-to-action">
+          <h3>Their safety is in YOUR hands!</h3>
+          <p>
+            Keep your cat safe by microchipping, desexing and keeping them
+            indoors!
+          </p>
         </div>
-        <div id="vis-div-barchart" class="chart-card"></div>
-      </div>
+      </section>
 
-      <div class="call-to-action">
-        <h3>Their safety is in YOUR hands!</h3>
-        <p>Keep your cat safe by microchipping, desexing and keeping them indoors!</p>
-      </div>
-    </section>
-
-    <footer class="small-font">
-      <h3>Data used in the visualisations</h3>
-      <ul class="apa">
-        <li>Animal Medicines Australia. (2016). <em>Pet ownership in Australia 2016</em>. <a href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2016/12/AMA_Pet-Ownership-in-Australia-2016-Report_sml.pdf" target="_blank">https://animalmedicinesaustralia.org.au/wp-content/uploads/2016/12/AMA_Pet-Ownership-in-Australia-2016-Report_sml.pdf</a></li>
-        <li>Animal Medicines Australia. (2025, September 18). <em>Animal Medicines Australia’s Pets in Australia report shows nearly three quarters of Australian homes now have a pet</em> [Media release]. <a href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2025/09/250918-Animal-Medicines-Australias-Pets-in-Australia-report-show-nearly-three-quarters-of-Australian-homes-now-have-a-pet.pdf" target="_blank">https://animalmedicinesaustralia.org.au/wp-content/uploads/2025/09/250918-Animal-Medicines-Australias-Pets-in-Australia-report-show-nearly-three-quarters-of-Australian-homes-now-have-a-pet.pdf</a></li>
-        <li>Atlas of Living Australia. (2026). <em>Felis catus occurrence records</em> [Data set]. <a href="https://doi.org/10.26197/ala.02b1dae5-eeb0-4050-beea-b9dff02f34eb" target="_blank">https://doi.org/10.26197/ala.02b1dae5-eeb0-4050-beea-b9dff02f34eb</a></li>
-        <li>AusCostGuides. (2026). <em>Cat desexing cost Australia 2026: Male vs female prices</em>. <a href="https://auscostguides.com.au/how-much-does-cat-desexing-cost-australia/" target="_blank">https://auscostguides.com.au/how-much-does-cat-desexing-cost-australia/</a></li>
-        <li>Australian Bureau of Statistics. (2016). <em>Australian Statistical Geography Standard (ASGS): Volume 1 – Main structure and greater capital city statistical areas, July 2016</em> (Cat. No. 1270.0.55.001). <a href="https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument" target="_blank">https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument</a></li>
-        <li>Golden Plains Shire Council. (n.d.). <em>Golden Plains animal registrations</em> [Data set]. data.gov.au. <a href="https://data.gov.au/data/dataset/animal-registrations" target="_blank">https://data.gov.au/data/dataset/animal-registrations</a></li>
-        <li>Mazeau, L., Wylie, C., Boland, L., &amp; Beatty, J. A. (2021). A shift towards early-age desexing of cats under veterinary care in Australia. <em>Scientific Reports, 11</em>, Article 811. <a href="https://doi.org/10.1038/s41598-020-79513-6" target="_blank">https://doi.org/10.1038/s41598-020-79513-6</a></li>
-        <li>PetRescue. (2024). <em>The state of pet adoption report 2023–2024: Cat adoption insights</em>. <a href="https://www.petrescue.com.au/the-state-of-pet-adoption-report-2025-cats" target="_blank">https://www.petrescue.com.au/the-state-of-pet-adoption-report-2025-cats</a></li>
-        <li>RSPCA Australia. (2024). <em>RSPCA national statistics 2023–2024</em>. <a href="https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/annual-statistics/RSPCA-Australia-Annual-Statistics-2023-2024.pdf" target="_blank">https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/annual-statistics/RSPCA-Australia-Annual-Statistics-2023-2024.pdf</a></li>
-        <li>Square Holes. (2024). <em>Cat containment survey wave 2 report</em> [Report prepared for the Dog and Cat Management Board]. data.gov.au. <a href="https://data.gov.au/data/dataset/south-australian-cat-management-sentiment-report" target="_blank">https://data.gov.au/data/dataset/south-australian-cat-management-sentiment-report</a></li>
-        <li>Surf Coast Shire Council. (n.d.). <em>Surf Coast Shire animal registrations</em> [Data set]. data.gov.au. <a href="https://data.gov.au/data/dataset/surf-coast-shire-animal-regsitrations" target="_blank">https://data.gov.au/data/dataset/surf-coast-shire-animal-regsitrations</a></li>
-        <li>Threatened Species Recovery Hub. (n.d.). <em>The impact of cats in Australia</em> [Fact sheet]. National Environmental Science Program. <a href="https://www.nespthreatenedspecies.edu.au/media/2j1j51na/112-the-impact-of-cats-in-australia-findings-factsheetweb.pdf" target="_blank">https://www.nespthreatenedspecies.edu.au/media/2j1j51na/112-the-impact-of-cats-in-australia-findings-factsheetweb.pdf</a></li>
-        <li>Threatened Species Recovery Hub. (2020). <em>Each roaming pet cat kills 110 native animals per year on average</em> [Media release]. National Environmental Science Program. <a href="https://www.nespthreatenedspecies.edu.au/news-and-media/media-releases/each-roaming-pet-cat-kills-110-native-animals-per-year-on-average" target="_blank">https://www.nespthreatenedspecies.edu.au/news-and-media/media-releases/each-roaming-pet-cat-kills-110-native-animals-per-year-on-average</a></li>
-        <li>Townsville City Council. (2026). <em>Townsville City Council animal registrations</em> [Data set]. data.gov.au. <a href="https://data.gov.au/data/dataset/tcc-animal-registrations" target="_blank">https://data.gov.au/data/dataset/tcc-animal-registrations</a></li>
-      </ul>
-      <p>The three council datasets (Golden Plains, Surf Coast and Townsville) were combined by the author into one dataset of 6,824 registered cats.</p>
-      <h3>Supporting sources (used in the text)</h3>
-      <ul class="apa">
-        <li>PetRescue. (n.d.). <em>PetRescue stats on pets killed in pounds</em>. <a href="https://www.petrescue.com.au/library/articles/petrescue-stats-on-pets-killed-in-pounds" target="_blank">https://www.petrescue.com.au/library/articles/petrescue-stats-on-pets-killed-in-pounds</a></li>
-        <li>PetRescue. (2026, June 29). <em>Understanding animal management in Australia</em>. <a href="https://www.petrescue.com.au/library/articles/understanding-animal-management-in-australia" target="_blank">https://www.petrescue.com.au/library/articles/understanding-animal-management-in-australia</a></li>
-        <li>RSPCA Australia. (2022, June 16). <em>Importance of microchipping pets</em>. <a href="https://rspca.org.au/blog/importance-microchipping-pets/" target="_blank">https://rspca.org.au/blog/importance-microchipping-pets/</a></li>
-        <li>RSPCA Australia. (2024). <em>Animal outcomes from our shelters, care and adoption centres 2023–24</em>. <a href="https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/annual-statistics/RSPCA-Report-on-Animal-Outcomes-2023-2024.pdf" target="_blank">https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/annual-statistics/RSPCA-Report-on-Animal-Outcomes-2023-2024.pdf</a></li>
-      </ul>
-      <h3>References</h3>
-      <ul>
-        <li>Charts and maps: <a href="https://vega.github.io/vega-lite/" target="_blank">Vega-Lite</a> v5.5.0, <a href="https://vega.github.io/vega/" target="_blank">Vega</a> v5.22.1 and <a href="https://github.com/vega/vega-embed" target="_blank">Vega-Embed</a> v6.21.0.</li>
-        <li>Fonts: <a href="https://fonts.google.com/specimen/Fredoka" target="_blank">Fredoka</a> (headings) and <a href="https://fonts.google.com/specimen/Nunito" target="_blank">Nunito</a> (body text), from Google Fonts, under the SIL Open Font License.</li>
-        <li> The <a href="https://vega.github.io/vega-lite/examples/" target="_blank">Vega-Lite example gallery</a> idioms were used as starting points for a lot of the charts, although they were pretty heavily modified afterwards. Except for the maps, those follow the applied code pretty closely. 
+      <footer class="small-font">
+        <h3>Data used in the visualisations</h3>
+        <ul class="apa">
+          <li>
+            Animal Medicines Australia. (2016).
+            <em>Pet ownership in Australia 2016</em>.
+            <a
+              href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2016/12/AMA_Pet-Ownership-in-Australia-2016-Report_sml.pdf"
+              target="_blank"
+              >https://animalmedicinesaustralia.org.au/wp-content/uploads/2016/12/AMA_Pet-Ownership-in-Australia-2016-Report_sml.pdf</a
+            >
+          </li>
+          <li>
+            Animal Medicines Australia. (2025, September 18).
+            <em
+              >Animal Medicines Australia’s Pets in Australia report shows
+              nearly three quarters of Australian homes now have a pet</em
+            >
+            [Media release].
+            <a
+              href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2025/09/250918-Animal-Medicines-Australias-Pets-in-Australia-report-show-nearly-three-quarters-of-Australian-homes-now-have-a-pet.pdf"
+              target="_blank"
+              >https://animalmedicinesaustralia.org.au/wp-content/uploads/2025/09/250918-Animal-Medicines-Australias-Pets-in-Australia-report-show-nearly-three-quarters-of-Australian-homes-now-have-a-pet.pdf</a
+            >
+          </li>
+          <li>
+            Atlas of Living Australia. (2026).
+            <em>Felis catus occurrence records</em> [Data set].
+            <a
+              href="https://doi.org/10.26197/ala.02b1dae5-eeb0-4050-beea-b9dff02f34eb"
+              target="_blank"
+              >https://doi.org/10.26197/ala.02b1dae5-eeb0-4050-beea-b9dff02f34eb</a
+            >
+          </li>
+          <li>
+            AusCostGuides. (2026).
+            <em>Cat desexing cost Australia 2026: Male vs female prices</em>.
+            <a
+              href="https://auscostguides.com.au/how-much-does-cat-desexing-cost-australia/"
+              target="_blank"
+              >https://auscostguides.com.au/how-much-does-cat-desexing-cost-australia/</a
+            >
+          </li>
+          <li>
+            Australian Bureau of Statistics. (2016).
+            <em
+              >Australian Statistical Geography Standard (ASGS): Volume 1 – Main
+              structure and greater capital city statistical areas, July
+              2016</em
+            >
+            (Cat. No. 1270.0.55.001).
+            <a
+              href="https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument"
+              target="_blank"
+              >https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument</a
+            >
+          </li>
+          <li>
+            Golden Plains Shire Council. (n.d.).
+            <em>Golden Plains animal registrations</em> [Data set]. data.gov.au.
+            <a
+              href="https://data.gov.au/data/dataset/animal-registrations"
+              target="_blank"
+              >https://data.gov.au/data/dataset/animal-registrations</a
+            >
+          </li>
+          <li>
+            Mazeau, L., Wylie, C., Boland, L., &amp; Beatty, J. A. (2021). A
+            shift towards early-age desexing of cats under veterinary care in
+            Australia. <em>Scientific Reports, 11</em>, Article 811.
+            <a href="https://doi.org/10.1038/s41598-020-79513-6" target="_blank"
+              >https://doi.org/10.1038/s41598-020-79513-6</a
+            >
+          </li>
+          <li>
+            PetRescue. (2024).
+            <em
+              >The state of pet adoption report 2023–2024: Cat adoption
+              insights</em
+            >.
+            <a
+              href="https://www.petrescue.com.au/the-state-of-pet-adoption-report-2025-cats"
+              target="_blank"
+              >https://www.petrescue.com.au/the-state-of-pet-adoption-report-2025-cats</a
+            >
+          </li>
+          <li>
+            RSPCA Australia. (2024).
+            <em>RSPCA national statistics 2023–2024</em>.
+            <a
+              href="https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/annual-statistics/RSPCA-Australia-Annual-Statistics-2023-2024.pdf"
+              target="_blank"
+              >https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/annual-statistics/RSPCA-Australia-Annual-Statistics-2023-2024.pdf</a
+            >
+          </li>
+          <li>
+            Square Holes. (2024).
+            <em>Cat containment survey wave 2 report</em> [Report prepared for
+            the Dog and Cat Management Board]. data.gov.au.
+            <a
+              href="https://data.gov.au/data/dataset/south-australian-cat-management-sentiment-report"
+              target="_blank"
+              >https://data.gov.au/data/dataset/south-australian-cat-management-sentiment-report</a
+            >
+          </li>
+          <li>
+            Surf Coast Shire Council. (n.d.).
+            <em>Surf Coast Shire animal registrations</em> [Data set].
+            data.gov.au.
+            <a
+              href="https://data.gov.au/data/dataset/surf-coast-shire-animal-regsitrations"
+              target="_blank"
+              >https://data.gov.au/data/dataset/surf-coast-shire-animal-regsitrations</a
+            >
+          </li>
+          <li>
+            Threatened Species Recovery Hub. (n.d.).
+            <em>The impact of cats in Australia</em> [Fact sheet]. National
+            Environmental Science Program.
+            <a
+              href="https://www.nespthreatenedspecies.edu.au/media/2j1j51na/112-the-impact-of-cats-in-australia-findings-factsheetweb.pdf"
+              target="_blank"
+              >https://www.nespthreatenedspecies.edu.au/media/2j1j51na/112-the-impact-of-cats-in-australia-findings-factsheetweb.pdf</a
+            >
+          </li>
+          <li>
+            Threatened Species Recovery Hub. (2020).
+            <em
+              >Each roaming pet cat kills 110 native animals per year on
+              average</em
+            >
+            [Media release]. National Environmental Science Program.
+            <a
+              href="https://www.nespthreatenedspecies.edu.au/news-and-media/media-releases/each-roaming-pet-cat-kills-110-native-animals-per-year-on-average"
+              target="_blank"
+              >https://www.nespthreatenedspecies.edu.au/news-and-media/media-releases/each-roaming-pet-cat-kills-110-native-animals-per-year-on-average</a
+            >
+          </li>
+          <li>
+            Townsville City Council. (2026).
+            <em>Townsville City Council animal registrations</em> [Data set].
+            data.gov.au.
+            <a
+              href="https://data.gov.au/data/dataset/tcc-animal-registrations"
+              target="_blank"
+              >https://data.gov.au/data/dataset/tcc-animal-registrations</a
+            >
+          </li>
+        </ul>
+        <p>
+          The three council datasets (Golden Plains, Surf Coast and Townsville)
+          were combined by the author into one dataset of 6,824 registered cats.
+        </p>
+        <h3>Supporting sources (used in the text)</h3>
+        <ul class="apa">
+          <li>
+            PetRescue. (n.d.).
+            <em>PetRescue stats on pets killed in pounds</em>.
+            <a
+              href="https://www.petrescue.com.au/library/articles/petrescue-stats-on-pets-killed-in-pounds"
+              target="_blank"
+              >https://www.petrescue.com.au/library/articles/petrescue-stats-on-pets-killed-in-pounds</a
+            >
+          </li>
+          <li>
+            PetRescue. (2026, June 29).
+            <em>Understanding animal management in Australia</em>.
+            <a
+              href="https://www.petrescue.com.au/library/articles/understanding-animal-management-in-australia"
+              target="_blank"
+              >https://www.petrescue.com.au/library/articles/understanding-animal-management-in-australia</a
+            >
+          </li>
+          <li>
+            RSPCA Australia. (2022, June 16).
+            <em>Importance of microchipping pets</em>.
+            <a
+              href="https://rspca.org.au/blog/importance-microchipping-pets/"
+              target="_blank"
+              >https://rspca.org.au/blog/importance-microchipping-pets/</a
+            >
+          </li>
+          <li>
+            RSPCA Australia. (2024).
+            <em
+              >Animal outcomes from our shelters, care and adoption centres
+              2023–24</em
+            >.
+            <a
+              href="https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/annual-statistics/RSPCA-Report-on-Animal-Outcomes-2023-2024.pdf"
+              target="_blank"
+              >https://rspca.sfo2.cdn.digitaloceanspaces.com/public/Uploads/annual-statistics/RSPCA-Report-on-Animal-Outcomes-2023-2024.pdf</a
+            >
+          </li>
+        </ul>
+        <h3>References</h3>
+        <ul>
+          <li>
+            Charts and maps:
+            <a href="https://vega.github.io/vega-lite/" target="_blank"
+              >Vega-Lite</a
+            >
+            v5.5.0,
+            <a href="https://vega.github.io/vega/" target="_blank">Vega</a>
+            v5.22.1 and
+            <a href="https://github.com/vega/vega-embed" target="_blank"
+              >Vega-Embed</a
+            >
+            v6.21.0.
+          </li>
+          <li>
+            Fonts:
+            <a href="https://fonts.google.com/specimen/Fredoka" target="_blank"
+              >Fredoka</a
+            >
+            (headings) and
+            <a href="https://fonts.google.com/specimen/Nunito" target="_blank"
+              >Nunito</a
+            >
+            (body text), from Google Fonts, under the SIL Open Font License.
+          </li>
+          <li>
+            The
+            <a href="https://vega.github.io/vega-lite/examples/" target="_blank"
+              >Vega-Lite example gallery</a
+            >
+            idioms were used as starting points for a lot of the charts,
+            although they were pretty heavily modified afterwards. Except for
+            the maps, those follow the applied code pretty closely.
+          </li>
+        </ul>
+        <li><strong>Author: </strong>Korkem-Ay Alim.</li>
+        <li>
+          <strong>AI acknowledgement: </strong> AI has been used in the making
+          of this assignment, the word document contains the complete breakdown
+          of the usage.
         </li>
-      </ul>
-      <li><strong>Author: </strong>Korkem-Ay Alim.</li>
-   <li> <strong>AI acknowledgement: </strong> AI has been used in the making of this assignment, the word document contains the complete breakdown of the usage.</li>
-    </footer>
+      </footer>
+    </main>
 
-  </main>
-
-  <script type="text/javascript">
-    vegaEmbed('#vis-pictogram', "js_charts/pictogram.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-heatmap', "js_charts/heatmap.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-waffle', "js_charts/wafflechart.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-mosaic', "js_charts/mosaic.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-map-rehomed', "js_charts/choropleth_rehomed.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-map-desex-cost', "js_charts/choropleth_desexing_cost.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-map-feral', "js_charts/feral_cat_dot_map.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-feral-radial', "js_charts/feral_kills_radial_barchart.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-adopt-barchart', "js_charts/adoption_barchart.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-euth-lollipop', "js_charts/euthanasia_lollipop.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-wild-rad-barchart', "js_charts/wildlife_radial_barchart.vg.json", { "actions": false }).catch(console.error);
-    vegaEmbed('#vis-div-barchart', "js_charts/div_bar.vg.json", { "actions": false }).catch(console.error);
-  </script>
-</body>
-
+    <script type="text/javascript">
+      vegaEmbed("#vis-pictogram", "js_charts/pictogram.vg.json", {
+        actions: false,
+      }).catch(console.error);
+      vegaEmbed("#vis-heatmap", "js_charts/heatmap.vg.json", {
+        actions: false,
+      }).catch(console.error);
+      vegaEmbed("#vis-waffle", "js_charts/wafflechart.vg.json", {
+        actions: false,
+      }).catch(console.error);
+      vegaEmbed("#vis-mosaic", "js_charts/mosaic.vg.json", {
+        actions: false,
+      }).catch(console.error);
+      vegaEmbed("#vis-map-rehomed", "js_charts/choropleth_rehomed.vg.json", {
+        actions: false,
+      }).catch(console.error);
+      vegaEmbed(
+        "#vis-map-desex-cost",
+        "js_charts/choropleth_desexing_cost.vg.json",
+        { actions: false },
+      ).catch(console.error);
+      vegaEmbed("#vis-map-feral", "js_charts/feral_cat_dot_map.vg.json", {
+        actions: false,
+      }).catch(console.error);
+      vegaEmbed(
+        "#vis-feral-radial",
+        "js_charts/feral_kills_radial_barchart.vg.json",
+        { actions: false },
+      ).catch(console.error);
+      vegaEmbed("#vis-adopt-barchart", "js_charts/adoption_barchart.vg.json", {
+        actions: false,
+      }).catch(console.error);
+      vegaEmbed("#vis-euth-lollipop", "js_charts/euthanasia_lollipop.vg.json", {
+        actions: false,
+      }).catch(console.error);
+      vegaEmbed(
+        "#vis-wild-rad-barchart",
+        "js_charts/wildlife_radial_barchart.vg.json",
+        { actions: false },
+      ).catch(console.error);
+      vegaEmbed("#vis-div-barchart", "js_charts/div_bar.vg.json", {
+        actions: false,
+      }).catch(console.error);
+    </script>
+  </body>
 </html>
