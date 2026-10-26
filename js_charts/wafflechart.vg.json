@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-  "text": "Comparison of Different Cat Breed Types",
-    "subtitle": ["Each square = 1% of 6,824 registered cats in Townsville, Golden Plains and Surf Coast"],
+  "text": "Comparison of Different Cat Breed Types Across Australia",
+    "subtitle": ["Each square = 1% of 5.3 million registered cats in Australia"],
     "anchor": "start"
   }, 
   "width": 380,
