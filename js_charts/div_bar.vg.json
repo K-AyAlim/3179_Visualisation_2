@@ -2,70 +2,100 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Sentiment on keeping cats contained",
-    "subtitle": "South Australians surveyed in 2024",
+    "subtitle": "South Australians surveyed in 2024: cats should be kept on their property at all times",
     "anchor": "start"
   },
   "data": { "url": "data_sources/div_barchart.csv" },
   "transform": [
     {
-      "calculate": "indexof(['Support', 'Neither', 'Oppose'], datum.support_category)",
+      "calculate": "indexof(['Strongly oppose', 'Oppose', 'Neither', 'Support', 'Strongly support'], datum.response)",
       "as": "order"
-    }
+    },
+    {
+      "calculate": "datum.order < 2 ? datum.percent : (datum.order == 2 ? datum.percent / 2 : 0)",
+      "as": "left_share"
+    },
+    {
+      "stack": "percent",
+      "groupby": [],
+      "sort": [{ "field": "order" }],
+      "as": ["stack_start", "stack_end"]
+    },
+    {
+      "joinaggregate": [{ "op": "sum", "field": "left_share", "as": "offset" }]
+    },
+    { "calculate": "datum.stack_start - datum.offset", "as": "x_start" },
+    { "calculate": "datum.stack_end - datum.offset", "as": "x_end" },
+    { "calculate": "(datum.x_start + datum.x_end) / 2", "as": "x_middle" },
+    { "calculate": "datum.percent + '%'", "as": "label" }
   ],
   "width": "container",
-  "height": 60,
+  "height": 70,
   "autosize": { "type": "fit-x", "contains": "padding" },
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
-  "encoding": {
-    "order": { "field": "order" }
-  },
   "layer": [
     {
-      "mark": "bar",
+      "mark": { "type": "bar", "stroke": "#ffffff", "strokeWidth": 2 },
       "encoding": {
         "x": {
-          "field": "support_level",
+          "field": "x_start",
           "type": "quantitative",
-          "stack": "normalize",
-          "axis": null
+          "title": "<- Oppose    Share of respondents    Support ->",
+          "scale": { "domain": [-30, 90] },
+          "axis": {
+            "labelExpr": "abs(datum.value) + '%'",
+            "tickCount": 6,
+            "titleFont": "Fredoka",
+            "titleFontSize": 13
+          }
         },
+        "x2": { "field": "x_end" },
         "color": {
-          "field": "support_category",
-          "type": "nominal",
+          "field": "response",
+          "type": "ordinal",
           "title": null,
           "scale": {
-            "domain": ["Support", "Neither", "Oppose"],
-            "range": ["#b8476e", "#d8ccc6", "#5a3a2e"]
+            "domain": [
+              "Strongly oppose",
+              "Oppose",
+              "Neither",
+              "Support",
+              "Strongly support"
+            ],
+            "range": ["#5a3a2e", "#9c7b6e", "#d8ccc6", "#e0a8ba", "#b8476e"]
           },
           "legend": {
             "orient": "bottom",
-            "labelFontSize": 15,
+            "labelFontSize": 14,
             "symbolType": "square",
-            "symbolSize": 250
+            "symbolSize": 250,
+            "columns": 5
           }
+        },
+        "tooltip": [
+          { "field": "response", "type": "nominal", "title": "Response" },
+          { "field": "percent", "type": "quantitative", "title": "Share (%)" }
+        ]
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.percent >= 5" }],
+      "mark": { "type": "text", "fontWeight": "bold", "fontSize": 14 },
+      "encoding": {
+        "x": { "field": "x_middle", "type": "quantitative" },
+        "text": { "field": "label", "type": "nominal" },
+        "color": {
+          "condition": {
+            "test": "datum.response == 'Neither' || datum.response == 'Support'",
+            "value": "#3b2620"
+          },
+          "value": "#ffffff"
         }
       }
     },
     {
-      "mark": { "type": "text", "fontWeight": "bold", "fontSize": 14 },
-      "encoding": {
-        "x": {
-          "field": "support_level",
-          "type": "quantitative",
-          "stack": "normalize",
-          "bandPosition": 0.5,
-          "axis": null
-        },
-        "text": { "field": "label", "type": "nominal" },
-        "detail": { "field": "support_category" },
-        "color": {
-          "condition": {
-            "test": "datum.support_category == 'Neither'",
-            "value": "#3b2620"
-          },
-          "value": "white"
-        }
-      }
+      "mark": { "type": "rule", "color": "#3b2620", "strokeWidth": 1.5 },
+      "encoding": { "x": { "datum": 0 } }
     }
   ],
   "config": {
