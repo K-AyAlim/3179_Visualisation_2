@@ -213,6 +213,6 @@ footer {
   margin-bottom: 8px;
 }
 
-footer a {
+a {
   color: var(--accent);
 }
