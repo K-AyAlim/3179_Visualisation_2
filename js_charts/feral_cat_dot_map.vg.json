@@ -19,14 +19,26 @@
       "transform": [
         { "filter": "datum.properties.STE_NAME16 != 'Other Territories'" }
       ],
-      "mark": { "type": "geoshape", "fill": "#f3e6df", "stroke": "white", "strokeWidth": 1.5 }
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f3e6df",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      }
     },
     {
       "data": { "url": "data_sources/feral_cat_sightings.csv" },
       "transform": [
-        { "filter": "datum.longitude >= 112 && datum.longitude <= 154 && datum.latitude >= -44 && datum.latitude <= -10" }
+        {
+          "filter": "datum.longitude >= 112 && datum.longitude <= 154 && datum.latitude >= -44 && datum.latitude <= -10"
+        }
       ],
-      "mark": { "type": "circle", "size": 4, "opacity": 0.3, "color": "#b8476e" },
+      "mark": {
+        "type": "circle",
+        "size": 4,
+        "opacity": 0.3,
+        "color": "#b8476e"
+      },
       "encoding": {
         "longitude": { "field": "longitude", "type": "quantitative" },
         "latitude": { "field": "latitude", "type": "quantitative" },

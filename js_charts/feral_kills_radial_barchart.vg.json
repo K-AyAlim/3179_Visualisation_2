@@ -14,11 +14,22 @@
     { "calculate": "datum.ring_inner + 0.75", "as": "ring_outer" },
     { "calculate": "datum.ring_inner + 0.375", "as": "ring_middle" },
     { "calculate": "0", "as": "start" },
-    { "calculate": "datum.animal_type + ': ' + datum.label", "as": "wedge_label" }
+    {
+      "calculate": "datum.animal_type + ': ' + datum.label",
+      "as": "wedge_label"
+    }
   ],
   "encoding": {
-    "theta": { "field": "start", "type": "quantitative", "scale": { "domain": [0, 1250] } },
-    "radius": { "field": "ring_middle", "type": "quantitative", "scale": { "domain": [0, 4] } }
+    "theta": {
+      "field": "start",
+      "type": "quantitative",
+      "scale": { "domain": [0, 1250] }
+    },
+    "radius": {
+      "field": "ring_middle",
+      "type": "quantitative",
+      "scale": { "domain": [0, 4] }
+    }
   },
   "layer": [
     {
@@ -43,7 +54,11 @@
         },
         "tooltip": [
           { "field": "animal_type", "type": "nominal", "title": "Animals" },
-          { "field": "label", "type": "nominal", "title": "Killed by feral cats per year" }
+          {
+            "field": "label",
+            "type": "nominal",
+            "title": "Killed by feral cats per year"
+          }
         ]
       }
     },

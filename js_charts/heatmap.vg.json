@@ -14,7 +14,9 @@
 
   "transform": [
     {
-      "joinaggregate": [{ "op": "sum", "field": "cats", "as": "council_total" }],
+      "joinaggregate": [
+        { "op": "sum", "field": "cats", "as": "council_total" }
+      ],
       "groupby": ["council"]
     },
     { "calculate": "datum.cats / datum.council_total", "as": "share" }
@@ -40,7 +42,19 @@
       "field": "breed",
       "type": "nominal",
       "title": null,
-      "sort": ["Ragdoll", "Burmese", "British Shorthair", "Siamese", "Russian Blue", "Tonkinese", "Birman", "Persian", "Maine Coon", "Bengal", "Other purebred"],
+      "sort": [
+        "Ragdoll",
+        "Burmese",
+        "British Shorthair",
+        "Siamese",
+        "Russian Blue",
+        "Tonkinese",
+        "Birman",
+        "Persian",
+        "Maine Coon",
+        "Bengal",
+        "Other purebred"
+      ],
       "axis": {
         "domain": false,
         "ticks": false,
@@ -52,7 +66,12 @@
 
   "layer": [
     {
-      "mark": { "type": "rect", "stroke": "#ffffff", "strokeWidth": 2, "cornerRadius": 4 },
+      "mark": {
+        "type": "rect",
+        "stroke": "#ffffff",
+        "strokeWidth": 2,
+        "cornerRadius": 4
+      },
       "encoding": {
         "color": {
           "field": "share",
@@ -61,15 +80,35 @@
           "scale": {
             "type": "threshold",
             "domain": [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35],
-            "range": ["#fbe8ec", "#eec8d3", "#e0a8ba", "#d387a0", "#c56787", "#b8476e", "#9a385c", "#7d2a4a"]
+            "range": [
+              "#fbe8ec",
+              "#eec8d3",
+              "#e0a8ba",
+              "#d387a0",
+              "#c56787",
+              "#b8476e",
+              "#9a385c",
+              "#7d2a4a"
+            ]
           },
-          "legend": { "format": ".0%", "orient": "bottom", "direction": "horizontal", "symbolType": "square", "symbolSize": 200 }
+          "legend": {
+            "format": ".0%",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 200
+          }
         },
         "tooltip": [
           { "field": "council", "type": "nominal", "title": "Council" },
           { "field": "breed", "type": "nominal", "title": "Breed" },
           { "field": "cats", "type": "quantitative", "title": "Cats" },
-          { "field": "share", "type": "quantitative", "title": "Share", "format": ".1%" }
+          {
+            "field": "share",
+            "type": "quantitative",
+            "title": "Share",
+            "format": ".1%"
+          }
         ]
       }
     },

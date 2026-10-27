@@ -8,17 +8,28 @@
   "height": 420,
   "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
   "data": { "url": "data_sources/wildlife_radial_barchart.csv" },
-"transform": [
-  { "window": [{ "op": "row_number", "as": "rank" }] },
-  { "calculate": "4 - datum.rank", "as": "ring_inner" },
-  { "calculate": "datum.ring_inner + 0.75", "as": "ring_outer" },
-  { "calculate": "datum.ring_inner + 0.375", "as": "ring_middle" },
-  { "calculate": "0", "as": "start" },
-  { "calculate": "datum.animal_type + ': ' + datum.killed", "as": "wedge_label" }
-],
+  "transform": [
+    { "window": [{ "op": "row_number", "as": "rank" }] },
+    { "calculate": "4 - datum.rank", "as": "ring_inner" },
+    { "calculate": "datum.ring_inner + 0.75", "as": "ring_outer" },
+    { "calculate": "datum.ring_inner + 0.375", "as": "ring_middle" },
+    { "calculate": "0", "as": "start" },
+    {
+      "calculate": "datum.animal_type + ': ' + datum.killed",
+      "as": "wedge_label"
+    }
+  ],
   "encoding": {
-"theta": { "field": "start", "type": "quantitative", "scale": { "domain": [0, 52] } },
-"radius": { "field": "ring_middle", "type": "quantitative", "scale": { "domain": [0, 4] } }
+    "theta": {
+      "field": "start",
+      "type": "quantitative",
+      "scale": { "domain": [0, 52] }
+    },
+    "radius": {
+      "field": "ring_middle",
+      "type": "quantitative",
+      "scale": { "domain": [0, 4] }
+    }
   },
   "layer": [
     {
@@ -30,10 +41,17 @@
       },
       "encoding": {
         "theta2": { "field": "killed" },
-"radius": { "field": "ring_outer" },
-"radius2": { "field": "ring_inner" },
-        "color": { "field": "animal_type", "type": "nominal", "legend": null,
-           "scale": { "domain": ["Mammals", "Reptiles", "Birds"], "range": ["#b8476e", "#8a6d9e", "#4f8fa8"] } },
+        "radius": { "field": "ring_outer" },
+        "radius2": { "field": "ring_inner" },
+        "color": {
+          "field": "animal_type",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": ["Mammals", "Reptiles", "Birds"],
+            "range": ["#b8476e", "#8a6d9e", "#4f8fa8"]
+          }
+        },
         "tooltip": [
           { "field": "animal_type", "type": "nominal", "title": "Animals" },
           {
@@ -49,7 +67,7 @@
       "mark": {
         "type": "text",
         "align": "right",
-"dx": -8,
+        "dx": -8,
         "fontSize": 13,
         "fontWeight": "bold"
       },

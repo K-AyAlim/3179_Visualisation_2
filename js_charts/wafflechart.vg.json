@@ -1,28 +1,44 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-  "text": "Comparison of Different Cat Breed Types Across Australia",
+    "text": "Comparison of Different Cat Breed Types Across Australia",
     "subtitle": ["Each square = 1% of 5.3 million pet cats in Australia"],
     "anchor": "start"
-  }, 
+  },
   "width": 380,
   "height": 380,
-  "padding": {"top": 20, "bottom": 20, "left": 24, "right": 24},
-  "data": {"url": "data_sources/waffle_breeds.csv"},
+  "padding": { "top": 20, "bottom": 20, "left": 24, "right": 24 },
+  "data": { "url": "data_sources/waffle_breeds.csv" },
   "transform": [
-  {"calculate": "indexof(['Mixed', 'Purebred'], datum.Breed)", "as": "order"},
-  {"window": [{"op": "sum", "field": "Percentage", "as": "running_end"}], "sort": [{"field": "order"}]},
-  {"calculate": "datum.running_end - datum.Percentage", "as": "running_start"},
-  {"calculate": "sequence(0, 100)", "as": "index"},
-  {"flatten": ["index"]},
-  {"filter": "datum.index >= round(datum.running_start) && datum.index < round(datum.running_end)"},
-  {"calculate": "datum.index % 10", "as": "col"},
-  {"calculate": "floor(datum.index / 10)", "as": "row"}
-], 
-"mark": {"type": "rect", "cornerRadius": 3, "stroke": "white", "strokeWidth": 3},
-"encoding": {
-    "x": {"field": "col", "type": "ordinal", "axis": null},
-    "y": {"field": "row", "type": "ordinal", "axis": null},
+    {
+      "calculate": "indexof(['Mixed', 'Purebred'], datum.Breed)",
+      "as": "order"
+    },
+    {
+      "window": [{ "op": "sum", "field": "Percentage", "as": "running_end" }],
+      "sort": [{ "field": "order" }]
+    },
+    {
+      "calculate": "datum.running_end - datum.Percentage",
+      "as": "running_start"
+    },
+    { "calculate": "sequence(0, 100)", "as": "index" },
+    { "flatten": ["index"] },
+    {
+      "filter": "datum.index >= round(datum.running_start) && datum.index < round(datum.running_end)"
+    },
+    { "calculate": "datum.index % 10", "as": "col" },
+    { "calculate": "floor(datum.index / 10)", "as": "row" }
+  ],
+  "mark": {
+    "type": "rect",
+    "cornerRadius": 3,
+    "stroke": "white",
+    "strokeWidth": 3
+  },
+  "encoding": {
+    "x": { "field": "col", "type": "ordinal", "axis": null },
+    "y": { "field": "row", "type": "ordinal", "axis": null },
     "color": {
       "field": "Breed",
       "type": "nominal",
@@ -31,16 +47,32 @@
         "domain": ["Mixed", "Purebred"],
         "range": ["#b8476e", "#5a3a2e"]
       },
-      "legend": {"orient": "right", "labelFontSize": 14, "symbolType": "square", "symbolSize": 200}
+      "legend": {
+        "orient": "right",
+        "labelFontSize": 14,
+        "symbolType": "square",
+        "symbolSize": 200
+      }
     },
-"tooltip": [
-      {"field": "Breed", "type": "nominal", "title": "Group"},
-      {"field": "Count", "type": "quantitative", "title": "Cats", "format": ","},
-      {"field": "Percentage", "type": "quantitative", "title": "Share (%)", "format": ".1f"}
+    "tooltip": [
+      { "field": "Breed", "type": "nominal", "title": "Group" },
+      {
+        "field": "Count",
+        "type": "quantitative",
+        "title": "Cats",
+        "format": ","
+      },
+      {
+        "field": "Percentage",
+        "type": "quantitative",
+        "title": "Share (%)",
+        "format": ".1f"
+      }
     ]
   },
   "config": {
-    "view": {"stroke": null},
+    "view": { "stroke": null },
     "font": "Nunito",
-    "title": {"font": "Fredoka", "fontSize": 18, "subtitleColor": "#7a5a50"}
-  }}
+    "title": { "font": "Fredoka", "fontSize": 18, "subtitleColor": "#7a5a50" }
+  }
+}

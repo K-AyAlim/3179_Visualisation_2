@@ -2,8 +2,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Pets per Household",
-    "subtitle": ["Each house = 2.5% of Australian households (rounded).",
-     "Note one house can have more than one pet, so the percentages do not add up to 100."],
+    "subtitle": [
+      "Each house = 2.5% of Australian households (rounded).",
+      "Note one house can have more than one pet, so the percentages do not add up to 100."
+    ],
     "anchor": "start"
   },
   "width": "container",

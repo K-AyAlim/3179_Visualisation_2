@@ -31,11 +31,7 @@
   ],
   "projection": {
     "type": "equalEarth",
-    "rotate": [
-      -134,
-      0,
-      0
-    ]
+    "rotate": [-134, 0, 0]
   },
   "layer": [
     {
@@ -72,10 +68,7 @@
               }
             },
             "key": "state",
-            "fields": [
-              "returned",
-              "total_cats"
-            ]
+            "fields": ["returned", "total_cats"]
           }
         },
         {
@@ -95,19 +88,8 @@
           "title": "Cats that made it home",
           "scale": {
             "type": "threshold",
-            "domain": [
-              0.6,
-              0.65,
-              0.7,
-              0.75
-            ],
-            "range": [
-              "#fbe8ec",
-              "#eec8d3",
-              "#e0a8ba",
-              "#d387a0",
-              "#b8476e"
-            ]
+            "domain": [0.6, 0.65, 0.7, 0.75],
+            "range": ["#fbe8ec", "#eec8d3", "#e0a8ba", "#d387a0", "#b8476e"]
           },
           "legend": {
             "format": ".0%",
@@ -151,11 +133,7 @@
               "url": "data_sources/state_label_positions.csv"
             },
             "key": "state",
-            "fields": [
-              "latitude",
-              "longitude",
-              "placement"
-            ]
+            "fields": ["latitude", "longitude", "placement"]
           }
         },
         {
@@ -172,11 +150,7 @@
               }
             },
             "key": "state",
-            "fields": [
-              "state_code",
-              "returned",
-              "total_cats"
-            ]
+            "fields": ["state_code", "returned", "total_cats"]
           }
         },
         {
@@ -217,11 +191,7 @@
               "url": "data_sources/state_label_positions.csv"
             },
             "key": "state",
-            "fields": [
-              "latitude",
-              "longitude",
-              "placement"
-            ]
+            "fields": ["latitude", "longitude", "placement"]
           }
         },
         {
@@ -238,11 +208,7 @@
               }
             },
             "key": "state",
-            "fields": [
-              "state_code",
-              "returned",
-              "total_cats"
-            ]
+            "fields": ["state_code", "returned", "total_cats"]
           }
         },
         {
