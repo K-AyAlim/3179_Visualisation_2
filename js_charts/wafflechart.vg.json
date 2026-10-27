@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
   "text": "Comparison of Different Cat Breed Types Across Australia",
-    "subtitle": ["Each square = 1% of 5.3 million registered cats in Australia"],
+    "subtitle": ["Each square = 1% of 5.3 million pet cats in Australia"],
     "anchor": "start"
   }, 
   "width": 380,
