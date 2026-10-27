@@ -42,13 +42,7 @@
     {
       "mark": { "type": "bar", "cornerRadiusEnd": 4, "width": { "band": 0.6 } },
       "encoding": {
-        "color": {
-          "condition": {
-            "test": "datum.cat_type == 'Adolescent & adult cats'",
-            "value": "#b8476e"
-          },
-          "value": "#5a3a2e"
-        },
+        "color": { "value": "#b8476e" },
         "tooltip": [
           { "field": "cat_type", "type": "nominal", "title": "Cats" },
           {
@@ -70,13 +64,7 @@
       },
       "encoding": {
         "text": { "field": "label", "type": "nominal" },
-        "color": {
-          "condition": {
-            "test": "datum.cat_type == 'Adolescent & adult cats'",
-            "value": "#b8476e"
-          },
-          "value": "#7a5a50"
-        }
+        "color": { "value": "#3b2620" }
       }
     }
   ],
