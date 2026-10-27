@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Desexing rates",
-    "subtitle": "by breed type and age",
+    "text": "Age at Desexing",
+    "subtitle": "by breed type",
     "anchor": "start"
   },
   "width": "container",
