@@ -17,7 +17,7 @@
     { "calculate": "datum.animal_type + ': ' + datum.label", "as": "wedge_label" }
   ],
   "encoding": {
-    "theta": { "field": "start", "type": "quantitative", "scale": { "domain": [0, 1500] } },
+    "theta": { "field": "start", "type": "quantitative", "scale": { "domain": [0, 1250] } },
     "radius": { "field": "ring_middle", "type": "quantitative", "scale": { "domain": [0, 4] } }
   },
   "layer": [
