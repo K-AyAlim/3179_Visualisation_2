@@ -33,7 +33,7 @@
 "radius": { "field": "ring_outer" },
 "radius2": { "field": "ring_inner" },
         "color": { "field": "animal_type", "type": "nominal", "legend": null,
-           "scale": { "range": ["#b8476e", "#8a6d9e", "#e3a1b6"] } },
+           "scale": { "domain": ["Mammals", "Reptiles", "Birds"], "range": ["#b8476e", "#8a6d9e", "#4f8fa8"] } },
         "tooltip": [
           { "field": "animal_type", "type": "nominal", "title": "Animals" },
           {

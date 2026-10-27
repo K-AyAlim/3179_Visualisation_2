@@ -38,7 +38,7 @@
           "legend": null,
           "scale": {
             "domain": ["Mammals", "Reptiles", "Birds"],
-            "range": ["#b8476e", "#8a6d9e", "#e3a1b6"]
+            "range": ["#b8476e", "#8a6d9e", "#4f8fa8"]
           }
         },
         "tooltip": [

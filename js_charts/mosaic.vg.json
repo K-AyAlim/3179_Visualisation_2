@@ -45,11 +45,11 @@
         },
         "color": {
           "field": "age_band",
-          "type": "ordinal",
+          "type": "nominal",
           "title": "Age at desexing",
           "scale": {
             "domain": ["By 4 months", "4 to 6 months", "6 to 12 months", "1 to 2 years", "Over 2 years"],
-            "range": ["#7d2a4a", "#b8476e", "#d387a0", "#eec8d3", "#d8ccc6"]
+            "range": ["#b8476e", "#8a6d9e", "#4f8fa8", "#6fa56b", "#e0a03c"]
           },
           "legend": { "orient": "right", "labelFontSize": 13, "symbolType": "square", "symbolSize": 200 }
         },
@@ -72,7 +72,7 @@
         "text": { "field": "share", "type": "quantitative", "format": ".0%" },
         "detail": { "field": "age_band" },
         "color": {
-          "condition": { "test": "datum.order <= 1", "value": "#ffffff" },
+          "condition": { "test": "datum.order <= 2", "value": "#ffffff" },
           "value": "#3b2620"
         }
       }
